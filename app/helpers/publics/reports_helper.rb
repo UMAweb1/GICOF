@@ -1,0 +1,2 @@
+module Publics::ReportsHelper
+end
