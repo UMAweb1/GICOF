@@ -1,4 +1,4 @@
-class Publics::EventsController < ApplicationController
+class Publics::EventsController < Publics::ApplicationController
   def create
   end
 

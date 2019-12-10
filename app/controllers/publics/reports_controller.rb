@@ -1,4 +1,4 @@
-class Publics::ReportsController < ApplicationController
+class Publics::ReportsController < Publics::ApplicationController
   def create
   end
 

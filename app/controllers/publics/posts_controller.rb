@@ -1,4 +1,4 @@
-class Publics::PostsController < ApplicationController
+class Publics::PostsController < Publics::ApplicationController
   def index
   end
 

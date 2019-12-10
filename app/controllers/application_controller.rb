@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 		  root_path
 		elsif current_user
 	      flash[:notice] = ""
-	      publics_user_path(current_user)  #　指定したいパスに変更
+	      user_path(current_user)  #　指定したいパスに変更
 	  end
 	end
 

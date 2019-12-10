@@ -1,0 +1,3 @@
+$("#profile").html("<%= escape_javascript(render 'layouts/image_profile', user: @user) %>")
+$("#right").html("<%= escape_javascript(render 'layouts/right_profile', user: @user) %>")
+$("#user-modal").modal("hide")

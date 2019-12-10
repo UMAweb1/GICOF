@@ -1,3 +1,9 @@
 // Place all the styles related to the publics/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#image_profile {
+	border: 5px solid black;
+	border-radius: 30px;
+	box-shadow: 0 0 5px gray;
+}

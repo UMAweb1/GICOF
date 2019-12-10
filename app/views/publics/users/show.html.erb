@@ -1,25 +1,15 @@
 <div class="container">
 	<div class="row">
-		<div>
-			<div class="image_profile">
-				<%= attachment_image_tag @user, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+		<div class="window-left col-sm-6">
+			<div class="image_profile" id="profile">
+				<%= render 'layouts/image_profile', user: @user %>
 			</div>
 			<div class="calendar">
 
 			</div>
 		</div>
-		<div>
-			<div class="user_info1">
-				<%= @user.nickname %>
-				<%= @user.prefecture %>
-				<%= @user.active_area %>
-				<%= @user.active_time %>
-				<%= @user.active_content %>
-			</div>
-			<div class="user_info2">
-				<%= @user.introduction %>
-				<%= @user.game_name %>
-			</div>
+		<div class="window-right col-sm-6" id="right">
+			<%= render 'layouts/right_profile', user: @user %>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-class Publics::InquiriesController < ApplicationController
+class Publics::InquiriesController < Publics::ApplicationController
   def create
   end
 

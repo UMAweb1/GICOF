@@ -1,4 +1,4 @@
-class Publics::MessagesController < ApplicationController
+class Publics::MessagesController < Publics::ApplicationController
   def create
   end
 end

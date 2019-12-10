@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_050212) do
+ActiveRecord::Schema.define(version: 2019_12_09_095808) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2019_12_09_050212) do
     t.string "nickname"
     t.string "active_time"
     t.string "active_area"
-    t.string "image_profile"
+    t.string "image_profile_id"
     t.integer "prefecture"
     t.integer "event_id"
     t.boolean "active_content"

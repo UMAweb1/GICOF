@@ -1,9 +1,9 @@
 <div class="modal-dialog">
   <div class="modal-content">
-	<%= form_for(@user, url:user_path(@user)) do |f| %>
+	<%= form_with(model:@user, url:user_path(@user)) do |f| %>
 	<div class="field">
 		<%= f.label :profilemage %><br />
-		<%= f.attachment_field :image_profile %>
+		<%= f.attachment_field :image_profile, direct: true %>
 	</div>
 	<div class="field">
 		<%= f.label :nickname %><br />

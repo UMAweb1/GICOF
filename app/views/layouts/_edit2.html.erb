@@ -1,0 +1,23 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+	<%= form_with(model:@user, url:user_path(@user)) do |f| %>
+	<div class="field">
+		<%= f.label :like_gamegenre %><br />
+			<%= collection_check_boxes(:user, :gamegenre_ids, Gamegenre.all, :id, :gamegenre) do |box| %>
+				<%= box.label {box.check_box + box.text} %>
+			<% end %>
+	</div>
+	<div class="field">
+		<%= f.label :introduction %><br />
+		<%= f.text_area :introduction, placeholder: "自己紹介メッセージ" %>
+	</div>
+    <div class="field">
+        <%= f.label :like_games %><br />
+		<%= f.text_area :game_name, placeholder: "好きなゲーム" %>
+    </div>
+    <div class="actions">
+    	<%= f.submit "変更する" %>
+    </div>
+	<% end %>
+  </div>
+</div>

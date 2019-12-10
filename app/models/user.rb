@@ -9,20 +9,24 @@ class User < ApplicationRecord
 	has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
 	has_many :followers, through: :follower_relationships, source: :user
 	# 投稿機能
-	has_many :post
+	has_many :posts
 	# 問い合わせ機能
-	has_many :inquiry
+	has_many :inquiries
 	# 通報機能
-	has_many :report
+	has_many :reports
 	# DM機能(エントリー)
-	has_many :entry
+	has_many :entries
 	# DM機能(メッセージ)
-	has_many :message
+	has_many :messages
 	# DM機能(好きなゲーム種類)
-	has_many :like
+	has_many :likes
+	has_many :gamegenres, through: :likes
 	# カレンダー機能
 	has_one :event
 
+	attachment :image_profile
+
+	enum active_content: { 全力: true, 楽しむ: false }
 	enum prefecture: {
 	    北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
 	    茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

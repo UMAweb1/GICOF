@@ -1,4 +1,4 @@
-class Publics::RoomsController < ApplicationController
+class Publics::RoomsController < Publics::ApplicationController
   def create
   end
 

@@ -1,4 +1,4 @@
-class Publics::RelationshipsController < ApplicationController
+class Publics::RelationshipsController < Publics::ApplicationController
   def create
   end
 

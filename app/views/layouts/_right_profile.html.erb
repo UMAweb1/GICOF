@@ -1,0 +1,23 @@
+<div class="user_info1">
+	<ul>
+		<li><%= @user.nickname %></li>
+		<li><%= @user.prefecture %></li>
+		<li><%= @user.active_area %></li>
+		<li><%= @user.active_time %></li>
+		<li><%= @user.active_content %></li>
+	</ul>
+</div>
+<div class="user_info2">
+	<div>
+		<%= @user.introduction %>
+	</div>
+	<div>
+		<% @like.each do |f| %>
+			<%= f.gamegenre.gamegenre %>
+		<% end %>
+	</div>
+	<div>
+		<%= @user.game_name %>
+	</div>
+	<%= link_to "プロフィール詳細変更", edit2_path(@user), remote: true %>
+</div>
