@@ -4,10 +4,10 @@ class Publics::RelationshipsController < Publics::ApplicationController
   	following = current_user.follow(user)
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
-      redirect_to user_path(current_user)
+      redirect_to matching_path(current_user)
     else
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      redirect_to user_path(current_user)
+      redirect_to matching_path(current_user)
     end
   end
 

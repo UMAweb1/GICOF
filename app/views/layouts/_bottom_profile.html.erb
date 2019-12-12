@@ -1,0 +1,20 @@
+<div class="calendar">
+
+</div>
+<div class="user_info">
+	<span>　自己紹介</span>
+	<div class="info_box overflow-auto">
+		<%= simple_format(@user.introduction) %>
+	</div>
+	<span>　好きなゲームのジャンル</span>
+	<div class="info_box">
+		<% @like.each do |f| %>
+			<%= f.gamegenre.gamegenre %>
+		<% end %>
+	</div>
+	<span>　好きなゲーム</span>
+	<div class="info_box overflow-auto">
+		<%= simple_format(@user.game_name) %>
+	</div>
+	<%= link_to "プロフィール詳細変更", edit2_path(@user), remote: true, class:"btn btn-outline-dark" %>
+</div>

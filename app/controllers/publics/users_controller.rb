@@ -1,5 +1,11 @@
 class Publics::UsersController < Publics::ApplicationController
   def index
+    @user = User.find(current_user.id)
+    @matcher = @user.following_relationships && @user.follower_relationships
+    @matcher.each do |f|
+      @matching_id = f.follower_id
+    end
+    @matching = User.where
   end
 
   def show

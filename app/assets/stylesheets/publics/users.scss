@@ -7,3 +7,64 @@
 	border-radius: 30px;
 	box-shadow: 0 0 5px gray;
 }
+
+.window-top {
+	width: 100%;
+	margin: 0 auto;
+	float: left;
+}
+
+.left_profile {
+	float: left;
+	width: 45%;
+	text-align: center;
+	.image_table {
+		margin: 0 auto;
+	}
+}
+
+.right_profile {
+	float: right;
+	width: 45%;
+	.info_table {
+		width: 80%;
+	}
+	li {
+		text-decoration: underline;
+	}
+}
+
+.window-bottom {
+	width: 100%;
+	margin: 50px auto 0;
+	float: left;
+}
+
+.calendar {
+	float: left;
+	width: 45%;
+}
+
+.user_info {
+	float: right;
+	width: 45%;
+	border: 1px solid black;
+	border-radius: 4px;
+	padding: 30px;
+	margin-right: 40px;
+	background-color: rgba(255, 255, 255, 0.6);
+	.info_box {
+		height: 25vh;
+		width: 100%;
+		word-wrap: break-word;
+		overflow-y: scroll;
+		margin-bottom: 10px;
+		border: 1px solid black;
+		border-radius: 4px;
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+}
+
+#textarea {
+	height: 25vh;
+}

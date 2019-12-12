@@ -5,9 +5,9 @@ class User < ApplicationRecord
 	         :recoverable, :rememberable, :validatable
 	# マッチング機能
 	has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
-	has_many :followings, through: :following_relationships, source: :user
+	has_many :followings, through: :following_relationships, source: :following
 	has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-	has_many :followers, through: :follower_relationships, source: :user
+	has_many :followers, through: :follower_relationships, source: :follower
 	# 投稿機能
 	has_many :posts
 	# 問い合わせ機能
@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def following?(other_user)
-    self.followings.include?(other_user)
+    follower_relationships.find_by(follower_id: other_user.id)
   end
 
 end
