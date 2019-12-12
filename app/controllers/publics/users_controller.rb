@@ -8,9 +8,25 @@ class Publics::UsersController < Publics::ApplicationController
   end
 
   def matching
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+       redirect_to user_path(current_user.id)
+    end
+    # 以下条件に沿ったユーザーデータの取得
+    @current = current_user
+    # ログインユーザーの住所情報取得
+    @area = @current.prefecture
+    # ログインユーザーの好きなゲーム種類の取得
+    @games = @current.gamegenre_ids
+    # ユーザーモデルに<好きなゲーム種類テーブル>と<マッチングテーブル>を追加
+    @all_user = User.joins(:likes).left_outer_joins(:following_relationships)
+    # ログインユーザー情報の除外と、ログインユーザーの好きなゲーム種類で絞り込み
+    @matching = @all_user.where.not(id: @current.id).where(likes:{gamegenre_id: @games}).uniq.shuffle.take(8)
   end
 
   def info
+    @id = params[:user_id]
+    @user = User.find(@id)
   end
 
   def edit
@@ -22,7 +38,7 @@ class Publics::UsersController < Publics::ApplicationController
 
   def edit2
     @user = User.find(params[:id])
-    if @user.id != current_user.id
+    unless current_user
        redirect_to user_path(current_user.id)
     end
   end

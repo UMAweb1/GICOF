@@ -45,9 +45,9 @@ Rails.application.routes.draw do
     put 'relationships/:id' => 'relationships#block'
     # ユーザー機能
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    get 'matchings' => 'users#matching', as: 'matching'
-    get 'matchings/info' => 'users#info', as: 'info'
-    get 'users/:id/edi2' => 'users#edit2', as: 'edit2'
+    get 'users/:id/matchings' => 'users#matching', as: 'matching'
+    get 'users/:id/matchings/info' => 'users#info', as: 'info'
+    get 'users/:id/edit2' => 'users#edit2', as: 'edit2'
   end
 
   get 'tops/caution'

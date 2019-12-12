@@ -37,4 +37,20 @@ class User < ApplicationRecord
 	    徳島県:36,香川県:37,愛媛県:38,高知県:39,
 	    福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
 	}
+
+  def follow(other_user)
+    unless self == other_user
+      self.following_relationships.find_or_create_by(following_id: other_user.id)
+    end
+  end
+
+  def unfollow(other_user)
+    relationship = self.following_relationships.find_by(following_id: other_user.id)
+    relationship.destroy if relationship
+  end
+
+  def following?(other_user)
+    self.followings.include?(other_user)
+  end
+
 end

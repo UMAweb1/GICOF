@@ -1,2 +1,29 @@
-<h1>Publics::Users#matching</h1>
-<p>Find me in app/views/publics/users/matching.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="flame">
+			<div class="user_flame">
+				<% @matching.each do |f| %>
+					<div class="match_top">
+						<%= attachment_image_tag f, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+					</div>
+					<div class="match_info">
+						<ul>
+							<li><%= f.nickname %></li>
+							<li><%= f.active_content %></li>
+							<li>
+								<% f.gamegenres.each do |x| %>
+									<%= x.gamegenre %>
+								<% end %>
+							</li>
+							<%= form_for(current_user.following_relationships.build) do |a| %>
+								<%= hidden_field_tag :following_id, f.id %>
+								<%= a.submit '☞' %>
+							<% end %>
+							<%= link_to "Read", info_path(user_id: f.id), remote: true %>
+						</ul>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

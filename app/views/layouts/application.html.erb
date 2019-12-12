@@ -4,7 +4,6 @@
     <title>GICOF</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/50e1df26d8.js" crossorigin="anonymous"></script>
@@ -32,10 +31,11 @@
         <div id="sp-menu">
           <ul>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-            <li><%= link_to "ログイン", signin_path, remote: true %></li>
-            <li><a href="#">MENU3</a></li>
-            <li><a href="#">MENU4</a></li>
-            <li><a href="#">MENU5</a></li>
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><%= link_to "マッチング一覧", users_path %></li>
+            <li><%= link_to "見つける", matching_path(current_user) %></li>
+            <li><%= link_to "投稿一覧", posts_path %></li>
+            <li><%= link_to "問い合わせ", new_inquiry_path %></li>
           </ul>
         </div>
       <% else %>
