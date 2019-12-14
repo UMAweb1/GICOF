@@ -2,24 +2,106 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#image_profile {
-	border: 5px solid black;
-	border-radius: 30px;
-	box-shadow: 0 0 5px gray;
-}
 
+// users/show.html.erb
 .window-top {
 	width: 100%;
 	margin: 0 auto;
 	float: left;
 }
 
+.window-bottom {
+	width: 100%;
+	margin: 50px auto 0;
+	float: left;
+}
+
+#image_profile {
+	border: 5px solid black;
+	border-radius: 30px;
+	box-shadow: 0 0 5px gray;
+}
+
+// users/matching.html.erb
+.flame {
+	width: 24%;
+	padding-top: 10px;
+	margin: 10px auto;
+	position: relative;
+	border: solid #000;
+	border-radius: 20px;
+	.user_flame {
+		padding-bottom: 20px;
+		width: 90%;
+		margin: 0 auto;
+		text-align: center;
+		.matching_link {
+			position: absolute;
+			bottom: 5px;
+			left: 15px;
+		}
+		.info_link {
+			position: absolute;
+			bottom: 5px;
+			right: 15px;
+		}
+		li:nth-of-type(3) {
+			min-height: 100px;
+			border-radius: 10px;
+			background-color: rgba(255, 255, 255, 0.7);
+		}
+		.w-auto {
+			width: 100%;
+		}
+	}
+}
+
+// users/index.html.erb
+.match_users {
+	width: 80%;
+	float: left;
+	margin: 0 auto;
+	.match_user {
+		width: 45%;
+		padding: 20px;
+		float: left;
+		margin: 15px 0;
+		border: solid;
+		border-radius: 20px;
+		background-color: rgba(255, 255, 255, 0.7);
+		line-height: 30px;
+		li:nth-of-type(1) {
+			margin-top: 20px;
+		}
+		.table {
+			margin-bottom: 0px;
+		}
+		#match_table {
+			tr {
+				vertical-align: middle;
+				td {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	.match_user:nth-child(even) {
+		float: right;
+	}
+}
+
+// layouts/_top_profile(users/show.html.erbへのrender)
 .left_profile {
 	float: left;
 	width: 45%;
 	text-align: center;
 	.image_table {
 		margin: 0 auto;
+		.image_profile {
+			#image_profile {
+				width: 180px;
+			}
+		}
 	}
 }
 
@@ -34,12 +116,7 @@
 	}
 }
 
-.window-bottom {
-	width: 100%;
-	margin: 50px auto 0;
-	float: left;
-}
-
+// layouts/_bottom_profile(users/show.html.erbへのrender)
 .calendar {
 	float: left;
 	width: 45%;
@@ -63,8 +140,27 @@
 		border-radius: 4px;
 		background-color: rgba(255, 255, 255, 0.6);
 	}
+	.edit2_link {
+		width: 100%;
+	}
 }
 
-#textarea {
+
+.user_info_min {
+	width: 100%;
+	margin: 0 auto;
+	.info_box_min {
+		width: 95%;
+		height: 15vh;
+		word-wrap: break-word;
+		overflow-y: scroll;
+		border: solid;
+		border-radius: 5px;
+		margin-bottom: 10px;
+	}
+}
+
+// layouts/_edit2.html.erb(_bottom_profileからのmodal画面)
+#user_textarea {
 	height: 25vh;
 }

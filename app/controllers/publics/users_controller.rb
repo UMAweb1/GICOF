@@ -1,16 +1,25 @@
 class Publics::UsersController < Publics::ApplicationController
   def index
     @user = User.find(current_user.id)
-    @matcher = @user.following_relationships && @user.follower_relationships
-    @matcher.each do |f|
-      @matching_id = f.follower_id
-    end
-    @matching = User.where
+    @matchings = @user.following & @user.followed
   end
 
   def show
     @user = User.find(params[:id])
     @like = Like.where(user_id: @user.id)
+    @current = current_user
+    # 相互フォロー もしくは @user がログインユーザーの場合
+    if @current.following?(@user) != nil && @current.followed?(@user) != nil || @user == @current
+    # @user がログインユーザーではない場合
+      if @user != @current
+    # フォローしているユーザー(@user)をブロックしていた場合
+        if @current.following?(@user).block == true
+          redirect_to user_path(@current)
+        end
+      end
+    else
+      redirect_to user_path(@current)
+    end
   end
 
   def matching
@@ -18,7 +27,6 @@ class Publics::UsersController < Publics::ApplicationController
     if @user.id != current_user.id
        redirect_to user_path(current_user.id)
     end
-    # 以下条件に沿ったユーザーデータの取得
     @current = current_user
     # ログインユーザーの住所情報取得
     @area = @current.prefecture
@@ -27,7 +35,7 @@ class Publics::UsersController < Publics::ApplicationController
     # ユーザーモデルに<好きなゲーム種類テーブル>と<マッチングテーブル>を追加
     @all_user = User.joins(:likes).left_outer_joins(:following_relationships)
     # ログインユーザー情報の除外と、ログインユーザーの好きなゲーム種類で絞り込み
-    @matching = @all_user.where.not(id: @current.id).where(likes:{gamegenre_id: @games}).uniq.shuffle.take(8)
+    @matching = @all_user.where.not(id: @current.id).where(prefecture: @area).where(likes:{gamegenre_id: @games}).uniq.sample(8)
   end
 
   def info

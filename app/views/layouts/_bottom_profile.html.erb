@@ -16,5 +16,8 @@
 	<div class="info_box overflow-auto">
 		<%= simple_format(@user.game_name) %>
 	</div>
-	<%= link_to "プロフィール詳細変更", edit2_path(@user), remote: true, class:"btn btn-outline-dark" %>
+	<% if @user == current_user %>
+		<%= link_to "プロフィール詳細変更", edit2_path(@user), remote: true, class:"btn btn-outline-dark edit2_link" %>
+	<% else %>
+	<% end %>
 </div>

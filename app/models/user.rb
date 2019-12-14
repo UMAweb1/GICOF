@@ -4,10 +4,11 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 	         :recoverable, :rememberable, :validatable
 	# マッチング機能
-	has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
-	has_many :followings, through: :following_relationships, source: :following
-	has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-	has_many :followers, through: :follower_relationships, source: :follower
+	# following_id => フォローされているユーザーid、 follower_id => フォローしているユーザーid
+	has_many :following_relationships, foreign_key: :follower_id, class_name: "Relationship", dependent: :destroy
+	has_many :following, through: :following_relationships, source: :following
+	has_many :follower_relationships, foreign_key: :following_id, class_name: "Relationship", dependent: :destroy
+	has_many :followed, through: :follower_relationships, source: :follower
 	# 投稿機能
 	has_many :posts
 	# 問い合わせ機能
@@ -49,8 +50,10 @@ class User < ApplicationRecord
     relationship.destroy if relationship
   end
 
-  def following?(other_user)
+  def following?(other_user) # 自分がフォローしている人のデータを取得(other_user = 自分がフォローしたユーザー)
+    following_relationships.find_by(following_id: other_user.id)
+  end
+  def followed?(other_user) # 自分をフォローした人のデータを取得(other_user = 自分をフォローしたユーザー)
     follower_relationships.find_by(follower_id: other_user.id)
   end
-
 end

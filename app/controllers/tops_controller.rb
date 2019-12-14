@@ -1,5 +1,6 @@
 class TopsController < ApplicationController
   def about
+  	@users = User.all
   end
 
   def caution

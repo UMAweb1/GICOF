@@ -1,73 +1,84 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.container {
-	height: 100%;
-}
-
-.row {
-	height: 100%;
-}
 
 .about-wrappers {
 	vertical-align: middle;
 	padding: 0 50px;
 	margin: 0 auto;
 	width: 100%;
-	background-color: red;
+	// background-color: red;
 	height: 100%;
-	border: 1px solid #000;
+	// border: 1px solid #000;
+	.about-wrapper {
+		width: 95%;
+		height: 45vh;
+		// background-color: blue;
+		// border: 1px solid #000;
+		padding: 15px;
+		margin: 50px auto;
+		text-align: center;
+		.about-image1 {
+			background-image: url(tops2.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		.about-image2 {
+			background-image: url(tops1.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.about-content {
+			width: 45%;
+			height: 100%;
+			background-color: green;
+			display: inline-block;
+			border: ridge 10px #3c3c3c;
+		}
+
+		.about-content:nth-child(odd) {
+			margin-right: 50px;
+		}
+	}
+	.about-wrapper:nth-of-type(2) {
+		height: 100%;
+		border: ridge 15px #3c3c3c;
+		background-color: rgba(0, 0, 0, 0.6);
+		position: relative;
+		.wrap-content {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateY(-50%) translateX(-50%);
+			-webkit-transform: translateY(-50%) translateX(-50%);
+			margin: auto;
+			z-index: 10;
+			width: 40%;
+			height: 15%;
+			background-color: rgba(0, 0, 0, 0.3);
+			color: #fff;
+			text-align: center;
+			display: table;
+			border-radius: 5px;
+			.user-count {
+				font-size: 20px;
+				font-weight: bold;
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
 }
 
-.about-wrapper {
-	width: 95%;
-	height: 45vh;
-	background-color: blue;
-	border: 1px solid #000;
-	padding: 10px;
-	margin: 50px auto;
-	text-align: center;
-}
-
-.about-wrapper:nth-of-type(2) {
-	height: 60vh;
-}
-
-.about-content {
-	width: 45%;
-	height: 100%;
-	background-color: green;
-	display: inline-block;
-}
-
-.about-content:nth-of-type(1) {
-	margin-right: 50px;
-}
-
-.about-content:nth-of-type(2) {
-
-}
-
-.about-content:nth-of-type(3) {
-	margin-right: 50px;
-}
-
-.about-content:nth-of-type(4) {
-
-}
 
 
-.about-image1 {
-	background-image: url(tops2.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
 
-.about-image2 {
-	background-image: url(tops1.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-}
+
+
+
+
+
 
 .slide-option{
   height: 55vh;

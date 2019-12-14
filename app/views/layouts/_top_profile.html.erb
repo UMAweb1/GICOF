@@ -12,7 +12,10 @@
 				<td>
 					<div>
 						<br/>
-						<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
+						<% if @user == current_user %>
+							<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
+						<% else %>
+						<% end %>
 					</div>
 				</td>
 			</tr>
