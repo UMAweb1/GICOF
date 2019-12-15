@@ -1,0 +1,5 @@
+<%= form_for message, url:messages_path, remote: true do |f| %>
+  <%= f.text_area :content, :placeholder => "メッセージを入力して下さい", class:"form-control", id:"dm_textarea" %>
+  <%= f.hidden_field :room_id, :value => room.id %>
+	<%= f.submit "投稿する", class:"btn btn-sm btn-outline-dark dm_button" %>
+<% end %>

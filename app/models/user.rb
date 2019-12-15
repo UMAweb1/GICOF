@@ -10,20 +10,20 @@ class User < ApplicationRecord
 	has_many :follower_relationships, foreign_key: :following_id, class_name: "Relationship", dependent: :destroy
 	has_many :followed, through: :follower_relationships, source: :follower
 	# 投稿機能
-	has_many :posts
+	has_many :posts, dependent: :destroy
 	# 問い合わせ機能
 	has_many :inquiries
 	# 通報機能
 	has_many :reports
 	# DM機能(エントリー)
-	has_many :entries
+	has_many :entries, dependent: :destroy
 	# DM機能(メッセージ)
-	has_many :messages
+	has_many :messages, dependent: :destroy
 	# DM機能(好きなゲーム種類)
-	has_many :likes
+	has_many :likes, dependent: :destroy
 	has_many :gamegenres, through: :likes
 	# カレンダー機能
-	has_one :event
+	has_one :event, dependent: :destroy
 
 	attachment :image_profile
 

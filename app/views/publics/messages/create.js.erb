@@ -1,0 +1,2 @@
+$("#dm_button").html("<%= escape_javascript(render 'layouts/dm_form', room: @room, messages: @messages, message: @message, entries: @entries) %>")
+$("#dm_body").html("<%= escape_javascript(render 'layouts/dm', room: @room, messages: @messages, message: @message, entries: @entries) %>")

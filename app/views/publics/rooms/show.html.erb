@@ -1,2 +1,21 @@
-<h1>Publics::Rooms#show</h1>
-<p>Find me in app/views/publics/rooms/show.html.erb</p>
+<div class="container">
+	<div class="row dm_row" id="body">
+		<div class="header dm_header">
+			<h3>　DM</h3>
+		</div>
+		<div class="dm_body">
+			<div class="dm_header">
+				<span>【Room Member】</span>
+				<% @entries.each do |e| %>
+					<span>〔<%= e.user.nickname %>さん〕　</span>
+				<% end %>
+			</div>
+			<div id="dm_button">
+				<%= render 'layouts/dm_form', room: @room, messages: @messages, message: @message, entries: @entries  %>
+			</div>
+			<div id="dm_body">
+				<%= render 'layouts/dm', room: @room, messages: @messages, message: @message, entries: @entries  %>
+			</div>
+		</div>
+	</div>
+</div>

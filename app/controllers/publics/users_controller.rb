@@ -10,12 +10,28 @@ class Publics::UsersController < Publics::ApplicationController
     @current = current_user
     # 相互フォロー もしくは @user がログインユーザーの場合
     if @current.following?(@user) != nil && @current.followed?(@user) != nil || @user == @current
-    # @user がログインユーザーではない場合
+      # @user がログインユーザーではない場合
       if @user != @current
-    # フォローしているユーザー(@user)をブロックしていた場合
+        # フォローしているユーザー(@user)をブロックしていた場合
         if @current.following?(@user).block == true
           redirect_to user_path(@current)
         end
+        # DM機能
+        @current_user_entry = Entry.where(user_id: @current.id)
+        @user_entry = Entry.where(user_id: @user.id)
+        @current_user_entry.each do |c_entry|
+          @user_entry.each do |u_entry|
+            if c_entry.room_id == u_entry.room_id
+              @room = true
+              @room_id = c_entry.room_id
+            end
+          end
+        end
+        unless @room
+          @room = Room.new
+          @entry = Entry.new
+        end
+        # DM機能終了
       end
     else
       redirect_to user_path(@current)
