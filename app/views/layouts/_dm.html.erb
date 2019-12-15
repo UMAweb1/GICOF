@@ -20,7 +20,7 @@
 			  	</div>
 		    <% end %>
 	  	<% end %>
-	  	<%= paginate messages %>
+	  	<%= paginate messages, url:room_path(room) %>
 	</div>
 <% else %>
   <span class="text-center">メッセージはまだありません</span>

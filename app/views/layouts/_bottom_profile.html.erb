@@ -1,6 +1,4 @@
-<div class="calendar">
-
-</div>
+<div id='calendar'></div>
 <div class="user_info">
 	<span>　自己紹介</span>
 	<div class="info_box overflow-auto">
@@ -21,3 +19,11 @@
 	<% else %>
 	<% end %>
 </div>
+<script>
+	$(function () {
+		$(document).ready(function(){
+		  $('#calendar').fullCalendar({
+		  });
+		});
+	});
+</script>

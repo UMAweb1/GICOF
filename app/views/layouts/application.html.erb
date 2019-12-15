@@ -35,6 +35,7 @@
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <li><%= link_to "マイページ", user_path(current_user) %></li>
             <li><%= link_to "マッチング一覧", users_path %></li>
+            <li><%= link_to "DM一覧", rooms_path %></li>
             <li><%= link_to "見つける", matching_path(current_user) %></li>
             <li><%= link_to "投稿一覧", posts_path %></li>
             <li><%= link_to "問い合わせ", new_inquiry_path %></li>

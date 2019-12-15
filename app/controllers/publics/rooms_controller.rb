@@ -18,6 +18,17 @@ class Publics::RoomsController < Publics::ApplicationController
   end
 
   def index
+  	@current = current_user
+  	# ログインしているユーザーが作成したDM部屋(entry)を格納
+  	@entries = @current.entries
+  	# DMをしているユーザーと紐づく(room)を格納する場所を作成
+  	room_ids = []
+  	# ログインしているユーザーと紐づく(room)を格納
+  	@entries.each do |entry|
+  		room_ids << entry.room_id
+  	end
+  	# ログインしているユーザーを除く、作成されたDM部屋(room)を格納
+  	@entry_users = Entry.where(room_id: room_ids).where('user_id != ?', @current.id)
   end
   private
   def entry_params

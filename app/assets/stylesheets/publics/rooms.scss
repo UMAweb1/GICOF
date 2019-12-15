@@ -41,3 +41,37 @@
 		}
 	}
 }
+
+.dms_body {
+	width: 100%;
+	.dms_all {
+		width: 100%;
+		display: contents;
+		margin: 0 auto;
+		.dms_users {
+			border: solid;
+			border-radius: 10px;
+			width: 80%;
+			margin: 10px auto;
+			display: inline-block;
+			.dms_user_img {
+			    width: 30%;
+				padding: 10px;
+				text-align: center;
+				display: inline-block;
+			}
+			.dms_user_content {
+				float: right;
+				width: 100%;
+				line-height: 3;
+				.dms_user_bottom {
+				    background-color: rgba(255,255,255,0.6);
+				    padding: 0 10px;
+				    border-radius: 10px;
+				    white-space: nowrap;
+				    width: 100%;
+				}
+			}
+		}
+	}
+}

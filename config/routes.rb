@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     # 問い合わせ
     resources :inquiries, only: [:create, :new]
     # DM機能(メッセージ)
-    resources :messages, only: [:create]
+    resources :messages, only: [:create, :index]
     # DM機能(ルーム)
     resources :rooms, only: [:index, :create, :show]
     # 投稿機能

@@ -117,8 +117,14 @@
 }
 
 // layouts/_bottom_profile(users/show.html.erbへのrender)
-.calendar {
+#calendar {
+	background-color: rgba(255, 255, 255, 0.8);
 	float: left;
+	padding: 5px;
+	min-height: 55vh;
+	margin-left: 20px;
+	border: 1px solid black;
+	border-radius: 5px;
 	width: 45%;
 }
 
@@ -128,7 +134,7 @@
 	border: 1px solid black;
 	border-radius: 4px;
 	padding: 30px;
-	margin-right: 40px;
+	margin-right: 20px;
 	background-color: rgba(255, 255, 255, 0.6);
 	.info_box {
 		height: 25vh;

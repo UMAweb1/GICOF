@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require moment
+//= require fullcalendar
 //= require bootstrap-sprockets
 
 $(function() {
