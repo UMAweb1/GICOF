@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row" id="body">
+		<div class="header">
+			<h3>　Matching User</h3>
+		</div>
+		<div class="match_users">
+			<% @matchings.each do |match| %>
+				<% if match.followed?(current_user).block == true %>
+				<% else %>
+					<div class="match_user">
+						<table class="table table-sm table-borderless" id="match_table" align="center">
+							<tbody>
+								<tr>
+									<td>
+										<%= attachment_image_tag match, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+									</td>
+									<td><%= match.nickname %></td>
+									<td>
+										<ul>
+											<li><%= match.prefecture %></li>
+											<li><%= match.active_area %></li>
+										</ul>
+									</td>
+									<td><%= link_to "詳細", user_path(match.id), class:"btn btn-outline-dark" %></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

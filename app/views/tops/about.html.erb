@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="about-wrappers">
+			<div class="about-wrapper">
+				<!-- 画面左上box -->
+				<div class="about-content">
+
+				</div>
+				<!-- 画面右上box -->
+				<div class="about-content about-image1">
+				</div>
+			</div>
+			<div class="about-wrapper">
+				<div class="wrap-content">
+					<span class="user-count">現在の利用者は　<%= @users.count %>　人です</span>
+				</div>
+				<div class="slide-view">
+					<div class="slide-img"><img class="slide-option" src="assets/slide1.jpg" alt=""></div>
+					<div class="slide-img"><img class="slide-option" src="assets/slide2.jpg" alt=""></div>
+					<div class="slide-img"><img class="slide-option" src="assets/slide3.jpg" alt=""></div>
+					<div class="slide-img"><img class="slide-option" src="assets/slide4.jpg" alt=""></div>
+				</div>
+			</div>
+			<div class="about-wrapper">
+				<!-- 画面左下box -->
+				<div class="about-content about-image2">
+				</div>
+				<!-- 画面右下box -->
+				<div class="about-content">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function() {
+	    $('.slide-view').slick({
+	        dots: false,
+	        arrows: false,
+	        autoplay: true,
+	        fade: true,
+	        speed: 1000,
+	        autoplaySpeed: 4000,
+	    });
+	});
+</script>

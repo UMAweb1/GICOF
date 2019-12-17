@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+	<%= form_for(@user, url:user_path(@user)) do |f| %>
+	<div class="field">
+		<%= f.label :profilemage %><br />
+		<%= f.attachment_field :image_profile %>
+	</div>
+	<div class="field">
+		<%= f.label :nickname %><br />
+		<%= f.text_field :nickname, :size=>"46", placeholder: "○○文字以内" %>
+	</div>
+    <div class="field">
+        <%= f.label :residence %><br />
+        <%= f.select :prefecture, User.prefectures.keys, {prompt: '都道府県'} %>
+        <br /><br />
+        <%= f.text_field :active_area, :size=>"46", placeholder: "主な活動範囲" %>
+    </div>
+    <div class="field">
+        <%= f.label :time %><br />
+        <%= f.text_field :active_time, :size=>"46", placeholder: "主な活動時間" %>
+    </div>
+    <div class="field">
+    	<%= f.label :Active %><br />
+		<%= f.label :active_content, "全力" %>
+		<%= f.radio_button :active_content, :全力 %>
+		<%= f.label :active_content, "楽しむ" %>
+		<%= f.radio_button :active_content, :楽しむ %>
+	</div>
+    <div class="field">
+    	<%= f.label :email %><br />
+    	<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="actions">
+    	<%= f.submit "変更する" %>
+    </div>
+	<% end %>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+$("#top").html("<%= escape_javascript(render 'layouts/top_profile', user: @user, like: @like, room: @room) %>")
+$("#bottom").html("<%= escape_javascript(render 'layouts/bottom_profile', user: @user, like: @like) %>")
+$("#user-modal").modal("hide")

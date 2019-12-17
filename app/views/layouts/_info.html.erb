@@ -1,0 +1,28 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+	<div class="modal-header">
+		<div class="modal-title"><h3>Recommended User Info</h3></div>
+	</div>
+  	<div class="modal-body">
+  		<div class="user_info_min">
+			<div class="match_top">
+				<%= attachment_image_tag @user, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+				<ul>
+					<li><%= @user.nickname %></li>
+					<li><%= @user.active_area %></li>
+				</ul>
+			</div>
+			<span>　自己紹介</span>
+			<div class="info_box_min">
+		  		<%= simple_format(@user.introduction) %>
+			</div>
+			<span>　好きなゲーム</span>
+			<div class="info_box_min">
+		  		<%= simple_format(@user.game_name) %>
+			</div>
+  		</div>
+  	</div>
+  	<div class="modal-footer">
+  	</div>
+  </div>
+</div>

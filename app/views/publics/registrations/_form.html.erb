@@ -1,0 +1,39 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+	<h2>Sign up</h2>
+
+<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="U6vNxbTO+OAJsVpIg6BxOycpJ9LIBHdMXDVpdsZl+B9FlhNPUzberCeFM9KE/+rNLU74g1+DdM7tQ47w6ukwtw==" />
+
+  <div class="field">
+    <label for="user_first_name">FirstName</label><br />
+    <input type="text" value="" name="user[first_name]" id="user_first_name" />
+  </div>
+  <div class="field">
+    <label for="user_last_name">FirstName</label><br />
+    <input type="text" value="" name="user[last_name]" id="user_last_name" />
+  </div>
+
+  <div class="field">
+    <label for="user_email">Email</label><br />
+    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+  </div>
+
+  <div class="field">
+    <label for="user_password">Password</label>
+    <em>(6 characters minimum)</em>
+    <br />
+    <input autocomplete="new-password" type="password" name="user[password]" id="user_password" />
+  </div>
+
+  <div class="field">
+    <label for="user_password_confirmation">Password confirmation</label><br />
+    <input autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
+  </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Sign up" data-disable-with="Sign up" />
+  </div>
+</form>
+
+  </div>
+</div>

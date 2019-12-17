@@ -1,0 +1,59 @@
+<div id='calendar'>
+	<% if user == current_user %>
+		<%= link_to "予定追加", new_event_path, remote: true, class:"btn btn-outline-dark calendar_link" %>
+	<% end %>
+</div>
+<div class="user_info">
+	<span>　自己紹介</span>
+	<div class="info_box overflow-auto">
+		<%= simple_format(user.introduction) %>
+	</div>
+	<span>　好きなゲームのジャンル</span>
+	<div class="info_box">
+		<% like.each do |f| %>
+			<%= f.gamegenre.gamegenre %><span>/</span>
+		<% end %>
+	</div>
+	<span>　好きなゲーム</span>
+	<div class="info_box overflow-auto">
+		<%= simple_format(user.game_name) %>
+	</div>
+	<% if user == current_user %>
+		<%= link_to "プロフィール詳細変更", edit2_path(user), remote: true, class:"btn btn-outline-dark edit2_link" %>
+	<% else %>
+	<% end %>
+</div>
+<div id="user-events" data-event-id="<%= user.events.to_json %>"></div>
+<script>
+	$(function () {
+		$(document).ready(function(){
+			var userEvents = $('#user-events').data('event-id');
+		    // var select = function(start, end, allDay, title) {
+		    //     var title = window.prompt("title");
+		    //     var data = {event: {title: title,
+		    //                         start: start,
+		    //                         end: end,
+		    //                         allDay: allDay}};
+
+		    // };
+
+
+		    var calendar = $('#calendar').fullCalendar({
+		        events: userEvents,
+		        eventLimit: true,
+		        selectable: true,
+		        selectHelper: true,
+		        ignoreTimezone: false,
+		        // select: select,
+		        eventClick: function(event) {
+		        	alert('ゲーム名:' + '\n' + event.title + '\n内容:'+ '\n' + event.description + '\n開始時間:' + '\n' + event.start.format('YYYY年MM月DD日 HH:mm') + '\n終了時間:' + '\n' + event.end.format('YYYY年MM月DD日 HH:mm'));
+		        },
+			    header: {
+			      left: 'prev,next today',
+			      center: 'title',
+			      right: 'month,agendaDay'
+			    },
+		    });
+		});
+	});
+</script>

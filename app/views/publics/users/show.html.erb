@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="row"  id="body">
+		<div class="header">
+			<h3>　User Info</h3>
+		</div>
+		<div class="window-top" id="top">
+			<%= render 'layouts/top_profile', user: @user, current: @current, room: @room, room_id: @room_id, entry: @entry %>
+		</div>
+		<div class="window-bottom" id="bottom">
+			<%= render 'layouts/bottom_profile', user: @user, current: @current, like: @like %>
+		</div>
+	</div>
+</div>

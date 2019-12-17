@@ -12,5 +12,19 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require jquery
+//= require moment
+//= require fullcalendar
+//= require bootstrap-sprockets
+
+$(function() {
+
+
+
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+ });

@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row" id="body">
+		<div class="header">
+			<h3>　Recommended User</h3>
+		</div>
+		<% @matching.each do |f| %>
+			<%  if f.followed?(current_user) != nil %> <!-- 既にフォローしていた場合は表示しない -->
+			<% else %>
+				<div class="flame">
+					<div class="user_flame">
+						<div class="match_top">
+							<%= attachment_image_tag f, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+						</div>
+						<div class="match_info">
+							<ul>
+								<li><%= f.nickname %></li>
+								<% if f.active_content == nil %> <!-- 活動内容未記入の場合は空白状態にする -->
+									<li><div>　</div></li>
+								<% else %>
+									<li><%= f.active_content %></li>
+								<% end %>
+								<li>
+									<% f.gamegenres.each do |x| %>
+										<%= x.gamegenre %><span>/</span>
+									<% end %>
+								</li>
+							</ul>
+							<div class="matching_link">
+								<%= form_for(current_user.following_relationships.build) do |a| %>
+									<%= hidden_field_tag :following_id, f.id %>
+									<%= a.submit '👍' %>
+								<% end %>
+							</div>
+							<div class="info_link">
+								<%= link_to "→Read", info_path(user_id: f.id), remote: true %>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

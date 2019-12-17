@@ -1,0 +1,63 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+        <div class="modal-title"><h3>Change User Info</h3></div>
+    </div>
+    <%= form_with(model:@user, url:user_path(@user)) do |f| %>
+    <div class="modal-body  form-group">
+        <table class="table table-sm table-hover">
+            <tbody>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :profilemage %></th>
+                        <td><%= f.attachment_field :image_profile, direct: true %></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :nickname %></th>
+                        <td><%= f.text_field :nickname, placeholder: "○○文字以内", class:"form-control" %></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :residence %></th>
+                        <td><%= f.select :prefecture, User.prefectures.keys, {prompt: '都道府県'}, class:"form-control" %>
+                        <br />
+                        <%= f.text_field :active_area, placeholder: "主な活動範囲", class:"form-control" %></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :time %></th>
+                        <td><%= f.text_field :active_time, placeholder: "主な活動時間", class:"form-control" %></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :Active %></th>
+                        <td>
+                            <%= f.label :active_content, "全力" %>
+                            <%= f.radio_button :active_content, :全力 %>
+                            <%= f.label :active_content, "楽しむ" %>
+                            <%= f.radio_button :active_content, :楽しむ %>
+                        </td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="field">
+                        <th><%= f.label :email %></th>
+                        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <div class="actions">
+            <%= f.submit "変更する", class:"btn btn-sm btn-outline-dark" %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>

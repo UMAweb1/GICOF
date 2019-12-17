@@ -1,0 +1,41 @@
+<hr>
+<% if messages.present? %>
+	<div class="dm_scroll scroller">
+	  	<% messages.each do |m| %>
+		  	<% if m.user == current_user %>
+			  	<div class="dm_right dm_contents">
+				    <span><%= m.user.nickname %><small>さん</small></span></br>
+				    <small><%= m.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+			  		<div class="dm_content">
+				    	<strong><%= m.content %></strong>
+			  		</div>
+			  	</div>
+		  	<% else %>
+			  	<div class="dm_left dm_contents">
+				    <span><%= m.user.nickname %><small>さん</small></span></br>
+				    <small><%= m.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+			  		<div class="dm_content">
+				    	<strong><%= m.content %></strong>
+			  		</div>
+			  	</div>
+		    <% end %>
+	  	<% end %>
+	  	<%= paginate messages, url:room_path(room) %>
+	</div>
+<% else %>
+  <span class="text-center">メッセージはまだありません</span>
+<% end %>
+<hr>
+
+<script>
+$(function() {
+  $('.dm_scroll').jscroll({
+    contentSelector: '.scroller',
+    nextSelector: 'span.next a',
+    autoTrigger: true,
+    padding: 200
+  });
+});
+</script>
+
+

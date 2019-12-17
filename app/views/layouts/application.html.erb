@@ -4,12 +4,66 @@
     <title>GICOF</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/50e1df26d8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
   </head>
-
   <body>
-    <%= yield %>
+    <header id="header" class="">
+      <div>
+        <%= link_to root_path do %>
+        <i class="fas fa-gamepad">GICOF</i>
+        <% end %>
+      </div>
+      <% if admin_signed_in? %>
+        <div id="sp-menu">
+          <ul>
+            <li><%= link_to "新規登録", signup_path, remote: true %></li>
+            <li><%= link_to "ログイン", signin_path, remote: true %></li>
+            <li><a href="#">MENU3</a></li>
+            <li><a href="#">MENU4</a></li>
+            <li><a href="#">MENU5</a></li>
+          </ul>
+        </div>
+      <% elsif user_signed_in? %>
+        <div id="sp-menu">
+          <ul>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><%= link_to "マッチング一覧", users_path %></li>
+            <li><%= link_to "DM一覧", rooms_path %></li>
+            <li><%= link_to "見つける", matching_path(current_user) %></li>
+            <li><%= link_to "投稿一覧", posts_path %></li>
+            <li><%= link_to "問い合わせ", new_inquiry_path %></li>
+          </ul>
+        </div>
+      <% else %>
+        <div id="sp-menu">
+          <ul>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+          </ul>
+        </div>
+      <% end %>
+      <!-- --- ハンバーガーアイコン ----->
+      <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    </header><!-- /header -->
+     <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+      <div class="push"></div> <!-- footerとbodyの余白 -->
+    <footer id="footer">
+    </footer>
   </body>
 </html>
