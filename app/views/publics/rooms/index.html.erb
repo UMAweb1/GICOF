@@ -4,21 +4,24 @@
 			<h3>　DM Users</h3>
 		</div>
 		<div class="dms_all">
-			<% @entry_users.each do |entry| %>
-				<div class="dms_users">
-					<div class="dms_user_img col-4">
-						<%= attachment_image_tag entry.user, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
-					</div>
-					<div class="dms_user_content col-8">
-						<div class="dms_user_top">
-							<%= link_to entry.user.nickname, user_path(entry.user) %><span>　/　</span>
-							<%= link_to "DMを始める", room_path(entry.room), class:"btn btn-sm btn-outline-dark" %>
+			<% @entry_users.order(id: "DESC").each do |entry| %>
+				<% unless entry.room.messages.last == nil %>
+					<div class="dms_users">
+						<div class="dms_user_img col-4">
+							<%= attachment_image_tag entry.user, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
 						</div>
-						<div class="dms_user_bottom d-block text-truncate">
-							<%= entry.room.messages.last.content %>
+						<div class="dms_user_content col-8">
+							<div class="dms_user_top">
+								<%= link_to entry.user.nickname, user_path(entry.user) %><span>　/　</span>
+								<%= link_to "DMを始める", room_path(entry.room), class:"btn btn-sm btn-outline-dark" %><span>　/　</span>
+								<%= entry.room.messages.last.created_at.strftime("%Y-%m-%d %H:%M") %>
+							</div>
+							<div class="dms_user_bottom d-block text-truncate">
+								<%= entry.room.messages.last.content %>
+							</div>
 						</div>
 					</div>
-				</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>

@@ -126,8 +126,12 @@
 	border: 1px solid black;
 	border-radius: 5px;
 	width: 45%;
+	.calendar_link {
+		width: 100%;
+	}
 }
 
+// layouts/_info.html.erb
 .user_info {
 	float: right;
 	width: 45%;

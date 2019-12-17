@@ -23,7 +23,7 @@ class User < ApplicationRecord
 	has_many :likes, dependent: :destroy
 	has_many :gamegenres, through: :likes
 	# カレンダー機能
-	has_one :event, dependent: :destroy
+	has_many :events, dependent: :destroy
 
 	attachment :image_profile
 

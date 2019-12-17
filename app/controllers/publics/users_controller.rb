@@ -31,7 +31,6 @@ class Publics::UsersController < Publics::ApplicationController
           @room = Room.new
           @entry = Entry.new
         end
-        # DM機能終了
       end
     else
       redirect_to user_path(@current)

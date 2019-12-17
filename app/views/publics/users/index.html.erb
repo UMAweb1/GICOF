@@ -5,9 +5,9 @@
 		</div>
 		<div class="match_users">
 			<% @matchings.each do |match| %>
-				<div class="match_user">
-					<% if match.followed?(current_user).block == true %>
-					<% else %>
+				<% if match.followed?(current_user).block == true %>
+				<% else %>
+					<div class="match_user">
 						<table class="table table-sm table-borderless" id="match_table" align="center">
 							<tbody>
 								<tr>
@@ -25,8 +25,8 @@
 								</tr>
 							</tbody>
 						</table>
-					<% end %>
-				</div>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>

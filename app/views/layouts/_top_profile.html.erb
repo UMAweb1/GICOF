@@ -4,7 +4,7 @@
 			<tr>
 				<td>
 					<div class="image_profile">
-						<%= attachment_image_tag @user, :image_profile, :fill, 180, 180, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+						<%= attachment_image_tag user, :image_profile, :fill, 180, 180, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
 					</div>
 				</td>
 			</tr>
@@ -12,17 +12,17 @@
 				<td>
 					<div>
 						<br/>
-						<% if @user == current_user %>
+						<% if user == current_user %>
 							<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
 						<% else %>
-							<% if @room == true %>
-								<%= link_to "チャットへ", room_path(@room_id), class:"btn btn-outline-dark" %>
+							<% if room == true %>
+								<%= link_to "チャットへ", room_path(room_id), class:"btn btn-outline-dark" %>
 							<% else %>
-								<%= form_for @room do |room|  %>
-									<%= fields_for @entry do |entry| %>
-										<%= entry.hidden_field :user_id, value: @user.id %>
+								<%= form_for room do |r|  %>
+									<%= fields_for entry do |e| %>
+										<%= e.hidden_field :user_id, value: user.id %>
 									<% end %>
-								<%= room.submit "DMを始める", class:"btn btn-outline-dark" %>
+								<%= r.submit "DMを始める", class:"btn btn-outline-dark" %>
 								<% end %>
 							<% end %>
 						<% end %>
