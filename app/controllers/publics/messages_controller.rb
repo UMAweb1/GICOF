@@ -6,6 +6,11 @@ class Publics::MessagesController < Publics::ApplicationController
   		@messaged = Message.create(message_params)
   		@messages = @room.messages.order(id: "DESC").page(params[:page]).per(10)
   		@entries = @room.entries
+      @read = Entry.where("user_id != ?", current_user.id).find_by(room_id: @room.id)
+      if @read.read == false || @read.read == nil
+        @read.update(read: true)
+        @read.save
+      end
   	else
   		flash[:alert] = "メッセージ送信に失敗しました。"
   	end

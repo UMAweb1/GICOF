@@ -1,3 +1,54 @@
 // Place all the styles related to the publics/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts_body, .post_wrapper {
+	width: 100%;
+	.header {
+		margin-bottom: 10px;
+	}
+	.post_wrapper {
+		display: contents;
+		.posts_button {
+			width: 80%;
+			margin: 10px auto;
+		}
+	}
+	.posts_all {
+		width: 100%;
+		margin: 0 auto;
+		.pagination {
+			display: none;
+		}
+		.post_users {
+			border: solid;
+			border-radius: 10px;
+			width: 80%;
+		    display: flex;
+			margin: 10px auto;
+			.post_user_img {
+			    width: 30%;
+				padding: 5px;
+				text-align: center;
+				display: inline-block;
+				#image_profile {
+					width: 80px;
+				}
+			}
+			.post_user_content {
+				float: right;
+				width: 100%;
+				line-height: 3;
+				.post_user_bottom {
+				    background-color: rgba(255,255,255,0.6);
+				    padding: 0 10px;
+				    border-radius: 10px;
+				    word-wrap:break-word;
+				    width: 100%;
+				    margin-bottom: 10px;
+				    line-height: normal;
+				}
+			}
+		}
+	}
+}

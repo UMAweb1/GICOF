@@ -22,8 +22,8 @@
       <% if admin_signed_in? %>
         <div id="sp-menu">
           <ul>
-            <li><%= link_to "新規登録", signup_path, remote: true %></li>
-            <li><%= link_to "ログイン", signin_path, remote: true %></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "利用者一覧", admins_users_path %></li>
             <li><a href="#">MENU3</a></li>
             <li><a href="#">MENU4</a></li>
             <li><a href="#">MENU5</a></li>
@@ -32,13 +32,19 @@
       <% elsif user_signed_in? %>
         <div id="sp-menu">
           <ul>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "マイページ", user_path(current_user) %></li>
             <li><%= link_to "マッチング一覧", users_path %></li>
-            <li><%= link_to "DM一覧", rooms_path %></li>
+            <li>
+              <%= link_to "DM一覧", rooms_path %>
+              <% unless current_user.entries.where(read: true).count == 0 %>
+                <span class="read"><%= current_user.entries.where(read: true).count %></span>
+              <% end %>
+            </li>
             <li><%= link_to "見つける", matching_path(current_user) %></li>
             <li><%= link_to "投稿一覧", posts_path %></li>
             <li><%= link_to "問い合わせ", new_inquiry_path %></li>
+            <li><%= link_to "退会する", user_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか?" %></li>
           </ul>
         </div>
       <% else %>
@@ -48,6 +54,15 @@
             <li><%= link_to "ログイン", new_user_session_path %></li>
           </ul>
         </div>
+      <% end %>
+      <!-- 管理者のログインページのみハンバーガーアイコンを非表示 -->
+      <% path = Rails.application.routes.recognize_path(request.path) %>
+      <% if path[:controller] == "admins/sessions" && path[:action] == "new" %>
+        <style>
+          #hm-icon {
+            display: none;
+          }
+        </style>
       <% end %>
       <!-- --- ハンバーガーアイコン ----->
       <div id="hm-icon">

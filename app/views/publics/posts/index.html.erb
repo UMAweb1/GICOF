@@ -1,14 +1,16 @@
 <div class="container">
-	<div class="row" id="body">
+	<div class="row posts_body" id="body">
 		<div class="header">
 			<h3>　Post All</h3>
 		</div>
-			<div>
-				<%= link_to "投稿する", new_post_path, remote:true %>
-			</div>
-			<div>
-				
-			</div>
+	    <% flash.each do |name, msg| %>
+	      <div class="alert alert-<%= name %>">
+	        <%= msg %>
+	      </div>
+	    <% end %>
+		<div class="post_wrapper">
+			<%= render 'layouts/post', user: @user, posts: @posts %>
 		</div>
 	</div>
 </div>
+

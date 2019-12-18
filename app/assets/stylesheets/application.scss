@@ -23,6 +23,33 @@
 	box-sizing: border-box;
 }
 
+.read {
+	padding: 0 5px;
+	background-color: #b22222;
+	border-radius: 5px;
+}
+
+.read2 {
+	background: linear-gradient(transparent 60%, #b22222 60%);
+}
+
+.alert {
+	width: 100%;
+}
+
+.pagination {
+	margin-top: 10px;
+	.page-item.active {
+		.page-link {
+		    background-color: #3a3a3a;
+		    border-color: #ffffff;
+		}
+		.page-link:hover {
+			color: #fff;
+		}
+	}
+}
+
 a, a:link, a:visited, a:hover, a:active {
   color: #000;
 }
@@ -190,6 +217,32 @@ body {
 .row {
 	height: 100%;
 }
+
+/* --- admins&users session & registration --- */
+
+.session_body {
+	width: 100%;
+	.form-group {
+		width: 80%;
+		margin: 0 auto;
+		.actions {
+			float: left;
+			padding-right: 20px;
+		}
+		.checkbox {
+			line-height: 2;
+		}
+	}
+}
+
+.registration_body {
+	width: 100%;
+	.form-group {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
 
 /* --- footer --- */
 

@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Gamegenre.create(
+	[
+		{gamegenre: "ｱｸｼｮﾝ"},
+		{gamegenre: "ﾊﾟｽﾞﾙ"},
+		{gamegenre: "RPG"},
+		{gamegenre: "ﾚｰｽ"},
+		{gamegenre: "恋愛"},
+		{gamegenre: "育成"},
+		{gamegenre: "ｵｰﾌﾟﾝﾜｰﾙﾄﾞ"},
+		{gamegenre: "ｼｭｰﾃｨﾝｸﾞ"},
+		{gamegenre: "FPS"}
+	]
+)
+
+Admin.create!(email: "admin@example.com",
+			 	password: "password",
+			 	password_confirmation: "password")

@@ -84,10 +84,9 @@ class Publics::UsersController < Publics::ApplicationController
     end
   end
 
-  def update2
-  end
-
   def destroy
+      current_user.destroy
+      redirect_to root_path
   end
 
   def block
@@ -97,7 +96,7 @@ class Publics::UsersController < Publics::ApplicationController
     params.require(:user).permit( :first_name, :last_name, :first_name_kana,
                                   :last_name_kana, :nickname, :prefecture,
                                   :active_area, :active_time, :active_content,
-                                  :game_name, :introduction, :image_profile,
+                                  :game_name, :introduction, :image_profile_id,
                                   :email, { gamegenre_ids:[]})
   end
 end

@@ -12,7 +12,7 @@
 							<tbody>
 								<tr>
 									<td>
-										<%= attachment_image_tag match, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+										<img src="<%= match.image_profile_id %>" , id="image_profile", width="100">
 									</td>
 									<td><%= match.nickname %></td>
 									<td>

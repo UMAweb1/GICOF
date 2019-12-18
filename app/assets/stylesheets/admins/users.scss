@@ -1,3 +1,22 @@
 // Place all the styles related to the admins/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_user_body {
+	.user_all{
+		width: 100%;
+		.table {
+			background-color: rgba(255, 255, 255, 0.7);
+			width: 80%;
+			margin: 0 auto;
+			thead {
+				td {
+					font-weight: bold;
+				    background-color: rgba(0, 0, 0, 0.7);
+				    border: groove;
+				    color: #fff;
+				}
+			}
+		}
+	}
+}

@@ -40,9 +40,7 @@ Rails.application.routes.draw do
     # カレンダー
     resources :events, only: [:create, :new, :index, :show, :edit, :update, :destroy]
     # マッチング機能
-    resources :relationships, only: [:create]
-    patch 'relationships/:id' => 'relationships#block'
-    put 'relationships/:id' => 'relationships#block'
+    resources :relationships, only: [:create, :update]
     # ユーザー機能
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     get 'users/:id/matchings' => 'users#matching', as: 'matching'

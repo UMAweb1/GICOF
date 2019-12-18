@@ -4,7 +4,7 @@
 			<tr>
 				<td>
 					<div class="image_profile">
-						<%= attachment_image_tag user, :image_profile, :fill, 180, 180, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+						<img src="<%=user.image_profile_id %>" , id="image_profile", width="180">
 					</div>
 				</td>
 			</tr>
@@ -37,23 +37,23 @@
 		<tbody>
 			<tr>
 				<th><span>ニックネーム</span></th>
-				<td><%= @user.nickname %></td>
+				<td><%= user.nickname %></td>
 			</tr>
 			<tr>
 				<th><span>住まい</span></th>
-				<td><%= @user.prefecture %></td>
+				<td><%= user.prefecture %></td>
 			</tr>
 			<tr>
 				<th><span>主な活動範囲</span></th>
-				<td><%= @user.active_area %></td>
+				<td><%= user.active_area %></td>
 			</tr>
 			<tr>
 				<th><span>主な活動時間</span></th>
-				<td><%= @user.active_time %></td>
+				<td><%= user.active_time %></td>
 			</tr>
 			<tr>
 				<th><span>傾向</span></th>
-				<td><%= @user.active_content %></td>
+				<td><%= user.active_content %></td>
 			</tr>
 		</tbody>
 	</table>

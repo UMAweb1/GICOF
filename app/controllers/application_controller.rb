@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
+	add_flash_types :success, :info, :warning, :danger
+	protect_from_forgery with: :exception
 	def after_sign_in_path_for(resource)
 		if resource.is_a?(Admin)
 		  root_path

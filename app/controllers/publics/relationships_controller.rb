@@ -2,16 +2,32 @@ class Publics::RelationshipsController < Publics::ApplicationController
   def create
   	user = User.find(params[:following_id])
   	following = current_user.follow(user)
-    if following.save
-    	# if user.followed?(current_user)
-      # flash[:success] = 'ユーザーをフォローしました'
-      redirect_to matching_path(current_user)
-    else
-      # flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      redirect_to matching_path(current_user)
-    end
+    	if current_user.followed?(user) != nil
+        redirect_to matching_path(current_user), success: "#{user.nickname}とマッチしました"
+      else
+        redirect_to matching_path(current_user)
+      end
   end
 
-  def block
+  def update
+  # 相互ブロック機能
+    @user = User.find(params[:id])
+    @following = @user.following_relationships.find_by(following_id: current_user.id)
+    @followed = @user.follower_relationships.find_by(follower_id: current_user.id)
+    @following.update(block: true)
+    @followed.update(block: true)
+  # 未読フラグ削除機能
+    Entry.where(user_id: @user.id).each do |f|
+      Entry.where(user_id: current_user.id).each do |x|
+        @room = f.room_id & x.room_id
+      end
+    end
+    @read1 = Entry.where(user_id: current_user).find_by(room_id: @room)
+    @read2 = Entry.where(user_id: @user).find_by(room_id: @room)
+    if @read1.read == true || @read2.read == true
+      @read1.update(read: false)
+      @read2.update(read: false)
+    end
+    redirect_to user_path(current_user)
   end
 end
