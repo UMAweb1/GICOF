@@ -16,19 +16,11 @@
 	float: left;
 }
 
-#image_profile {
-	border: 5px solid black;
-	border-radius: 30px;
-	box-shadow: 0 0 5px gray;
-}
-
 .user_block {
 	margin-left: 20px;
 }
 
 // users/matching.html.erb
-
-
 .flame {
 	width: 24%;
 	padding-top: 10px;
@@ -61,6 +53,7 @@
 		}
 	}
 }
+
 
 // users/index.html.erb
 .match_users {
@@ -96,6 +89,7 @@
 	}
 }
 
+
 // layouts/_top_profile(users/show.html.erbへのrender)
 .left_profile {
 	float: left;
@@ -122,6 +116,7 @@
 	}
 }
 
+
 // layouts/_bottom_profile(users/show.html.erbへのrender)
 #calendar {
 	background-color: rgba(255, 255, 255, 0.8);
@@ -136,6 +131,7 @@
 		width: 100%;
 	}
 }
+
 
 // layouts/_info.html.erb
 .user_info {

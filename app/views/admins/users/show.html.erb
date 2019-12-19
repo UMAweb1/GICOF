@@ -78,6 +78,9 @@
 			</div>
 			<div id="user-events" data-event-id="<%= @user.events.to_json %>"></div>
 		</div>
+		<div class="user_delete">
+			<%= link_to "退会させる", admins_user_path(@user), method: :delete, "data-confirm" => "本当に退会させますか?", class:"btn btn-outline-dark" %>
+		</div>
 	</div>
 </div>
 

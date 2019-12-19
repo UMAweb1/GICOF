@@ -25,7 +25,6 @@ class User < ApplicationRecord
 	# カレンダー機能
 	has_many :events, dependent: :destroy
 
-	attachment :image_profile
 	mount_uploader :image_profile_id, ImageUploader
 
 	enum active_content: { 全力: true, 楽しむ: false }

@@ -17,7 +17,7 @@
 									<%= link_to entry.user.nickname, user_path(entry.user) %><span>　/　</span>
 									<%= link_to "DMを始める", room_path(entry.room), class:"btn btn-sm btn-outline-dark" %><span>　/　</span>
 									<%= entry.room.messages.last.created_at.strftime("%Y-%m-%d %H:%M") %>
-									<% if current_user.entries.find_by(room_id: entry.room_id).read == true %>
+									<% if entry.read == true %>
 										<span>　/　</span><strong class="read2">未読あり</strong>
 									<% end %>
 								</div>

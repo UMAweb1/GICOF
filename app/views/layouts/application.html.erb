@@ -37,8 +37,8 @@
             <li><%= link_to "マッチング一覧", users_path %></li>
             <li>
               <%= link_to "DM一覧", rooms_path %>
-              <% unless current_user.entries.where(read: true).count == 0 %>
-                <span class="read"><%= current_user.entries.where(read: true).count %></span>
+              <% unless read_flag(current_user) == 0 %>
+                <span class="read"><%= read_flag(current_user) %></span>
               <% end %>
             </li>
             <li><%= link_to "見つける", matching_path(current_user) %></li>

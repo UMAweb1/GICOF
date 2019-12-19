@@ -23,6 +23,7 @@
 	box-sizing: border-box;
 }
 
+// 未読機能
 .read {
 	padding: 0 5px;
 	background-color: #b22222;
@@ -33,10 +34,20 @@
 	background: linear-gradient(transparent 60%, #b22222 60%);
 }
 
+// flashメッセージ
 .alert {
 	width: 100%;
 }
 
+// イメージ画像枠
+#image_profile {
+	border: 5px solid black;
+	border-radius: 30px;
+	box-shadow: 0 0 5px gray;
+}
+
+
+// ページネーション
 .pagination {
 	margin-top: 10px;
 	.page-item.active {

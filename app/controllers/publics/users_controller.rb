@@ -85,8 +85,9 @@ class Publics::UsersController < Publics::ApplicationController
   end
 
   def destroy
-      current_user.destroy
-      redirect_to root_path
+    user = current_user
+    user.destroy
+    redirect_to root_path
   end
 
   def block
