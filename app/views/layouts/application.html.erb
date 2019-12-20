@@ -24,9 +24,7 @@
           <ul>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <li><%= link_to "利用者一覧", admins_users_path %></li>
-            <li><a href="#">MENU3</a></li>
-            <li><a href="#">MENU4</a></li>
-            <li><a href="#">MENU5</a></li>
+            <li><%= link_to "ゲームジャンル一覧", new_admins_gamegenre_path %></li>
           </ul>
         </div>
       <% elsif user_signed_in? %>
@@ -43,7 +41,6 @@
             </li>
             <li><%= link_to "見つける", matching_path(current_user) %></li>
             <li><%= link_to "投稿一覧", posts_path %></li>
-            <li><%= link_to "問い合わせ", new_inquiry_path %></li>
             <li><%= link_to "退会する", user_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか?" %></li>
           </ul>
         </div>
@@ -79,6 +76,13 @@
       </div>
       <div class="push"></div> <!-- footerとbodyの余白 -->
     <footer id="footer">
+      <div id="footer_nav">
+        <span>© 2019 GICOF</span>
+        <span id="footer_info">
+          <%= link_to "利用規約", term_path, class:"footer_info" %><span>　</span>
+          <%= link_to "プライバシーポリシー", privacy_policy_path, class:"footer_info" %>
+        </span>
+      </div>
     </footer>
   </body>
 </html>

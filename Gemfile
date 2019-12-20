@@ -44,6 +44,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -83,3 +84,4 @@ gem 'bxslider-rails'
 # gem "refile", require: "refile/rails", github: 'manfe/refile'
 # gem "refile-mini_magick"
 gem 'font-awesome-rails'
+gem 'rails-i18n'

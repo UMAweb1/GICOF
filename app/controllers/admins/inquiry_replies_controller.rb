@@ -1,4 +1,4 @@
-class Admins::InquiryRepliesController < ApplicationController
+class Admins::InquiryRepliesController < Admins::ApplicationController
   def edit
   end
 

@@ -1,3 +1,31 @@
 // Place all the styles related to the admins/gamegenres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gamegenre_all {
+	text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    .table {
+    	background-color: rgba(255, 255, 255, 0.7);
+	    caption {
+			text-align: center;
+		    display: inline-block;
+		    width: 100%;
+		    background-color: rgba(0, 0, 0, 0.7);
+		    color: #fff;
+		    border: groove;
+		    font-weight: bold;
+		    #new_gamegenre {
+			    width: 80%;
+			    margin: auto;
+		    }
+	    }
+	    tr {
+	    	td {
+				width: 25%;
+			    float: left;
+	    	}
+	    }
+    }
+}

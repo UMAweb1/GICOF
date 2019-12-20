@@ -42,7 +42,7 @@ class User < ApplicationRecord
 	validates :last_name, presence:true, length: {maximum: 10}
 	validates :first_name_kana, presence:true, length: {maximum: 10}
 	validates :last_name_kana, presence:true, length: {maximum: 10}
-	validates :nickname, presence:true, length: {maximum: 6}
+	validates :nickname, presence:true, length: {maximum: 6}, uniqueness: true
 	validates :birthday, presence:true
 
 

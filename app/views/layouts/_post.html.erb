@@ -3,7 +3,9 @@
 </div>
 <div class="posts_all scroller">
 	<% posts.each do |f| %>
+	<!-- Postしたユーザーがログインユーザーではない場合 -->
 		<% if f.user != current_user %>
+		<!-- Postしたユーザーをブロックしていない場合 -->
 			<% if f.user.followed?(current_user).block == true %>
 			<% else %>
 				<div class="post_users">

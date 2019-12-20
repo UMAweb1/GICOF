@@ -2,6 +2,11 @@
 	<div class="row"  id="body">
 		<div class="header">
 			<h3>　User Info</h3>
+	      <% flash.each do |name, msg| %>
+	        <div class="alert alert-<%= name %>">
+	          <%= msg %>
+	        </div>
+	      <% end %>
 		</div>
 		<div class="window-top" id="top">
 			<%= render 'layouts/top_profile', user: @user, current: @current, room: @room, room_id: @room_id, entry: @entry %>

@@ -3,6 +3,11 @@
 		<div class="header">
 			<h3>　All User</h3>
 		</div>
+	    <% flash.each do |name, msg| %>
+	      <div class="alert alert-<%= name %>">
+	        <%= msg %>
+	      </div>
+	    <% end %>
 		<div class="user_all">
 			<table class="table table-bordered table-hover">
 				<thead>

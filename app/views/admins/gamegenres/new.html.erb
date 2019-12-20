@@ -1,2 +1,32 @@
-<h1>Admins::Gamegenres#new</h1>
-<p>Find me in app/views/admins/gamegenres/new.html.erb</p>
+<div class="container">
+	<div class="row" id="body">
+		<div class="header">
+			<h3>　Game Genre</h3>
+		</div>
+		<% flash.each do |name, msg| %>
+		  <div class="alert alert-<%= name %>">
+		    <%= msg %>
+		  </div>
+		<% end %>
+		<div class="gamegenre_all">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<caption>GameGenres</caption>
+					<caption>
+						<%= form_for(@new_genre, url:admins_gamegenres_path) do |f| %>
+							<%= f.text_field :gamegenre, class:"form-control" %>
+							<%= f.submit "追加する", class:"btn btn-sm form-control" %>
+						<% end %>
+					</caption>
+					<tr>
+						<% @genres.each do |f| %>
+							<td><%= f.gamegenre %>
+								<small>(<%= link_to "削除", admins_gamegenre_path(f.id), method: :delete %>)</small>
+							</td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

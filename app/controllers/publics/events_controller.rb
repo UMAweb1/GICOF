@@ -10,7 +10,7 @@ class Publics::EventsController < Publics::ApplicationController
       render :new
     else
       if event.save
-        # 開始時刻より終了時刻が前の時刻の場合削除しエラー文を表示
+        # 開始時刻より終了時刻が前の時刻の場合削除しエラー文を表示y
         if event.end < event.start
           event.destroy
           flash.now[:warning] = "開始時刻と終了時刻に問題があります"

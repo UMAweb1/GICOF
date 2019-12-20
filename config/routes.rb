@@ -49,8 +49,8 @@ Rails.application.routes.draw do
   end
 
   get 'tops/caution'
-  get 'tops/term'
-  get 'tops/privacy_policy'
+  get 'term' => 'tops#term'
+  get 'privacy_policy' => 'tops#privacy_policy'
   get 'signin' => 'signin#new', as: 'signin'
   get 'signup' => 'signup#new', as: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
