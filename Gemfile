@@ -85,3 +85,7 @@ gem 'bxslider-rails'
 # gem "refile-mini_magick"
 gem 'font-awesome-rails'
 gem 'rails-i18n'
+
+group :production do
+  gem 'mysql2'
+end
