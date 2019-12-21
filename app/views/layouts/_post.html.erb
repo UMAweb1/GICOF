@@ -42,14 +42,4 @@
 	<% end %>
 	<%= paginate posts, url:posts_path %>
 </div>
-
-<script>
-$(function() {
-  $('.posts_all').jscroll({
-    contentSelector: '.scroller',
-    nextSelector: 'span.next a',
-    autoTrigger: true,
-    padding: 200
-  });
-});
-</script>
+<%= javascript_include_tag 'publics/scroll.js' %>

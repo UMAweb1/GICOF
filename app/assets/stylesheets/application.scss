@@ -92,8 +92,6 @@ html,body {
 		padding: 15px;
 		color: #fff;
 	}
-	// 仮線
-	// border: 1px solid #000;
 }
 
 
@@ -193,6 +191,12 @@ html,body {
 	font-weight: bold;
 }
 
+@media screen and (max-width:425px) {
+	#sp-menu {
+		width: 40%;
+	}
+}
+
 
 
 /* --- body --- */
@@ -273,6 +277,26 @@ body {
 			.footer_info {
 				color: #fff;
 			}
+		}
+	}
+}
+
+@media screen and (max-width:600px) {
+	#footer {
+		#footer_nav {
+			text-align: -webkit-auto;
+			#footer_info {
+			    position: absolute;
+			    right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:320px) {
+	#footer {
+		#footer_nav {
+			font-size: smaller;
 		}
 	}
 }

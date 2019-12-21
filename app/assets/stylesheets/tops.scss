@@ -34,8 +34,9 @@
 			text-align: -webkit-center;
 			.about-sentence {
 				display: table-cell;
-			    line-height: 40px;
 			    font-weight: bold;
+			    height: 220px;
+			    vertical-align: middle;
 			}
 		}
 
@@ -79,13 +80,60 @@
 	margin: 0 auto;
 }
 
-
-
-
-
-
-
 .slide-option{
   height: 55vh;
   width :100%;
 }
+
+
+@media screen and (max-width:1024px) {
+	.about-wrappers {
+		.about-wrapper {
+			height: auto;
+			.about-image1, .about-image2 {
+				display: none;
+			}
+			.about-content {
+				width: 100%;
+				height: auto;
+				margin: 0;
+				.about-sentence {
+					font-size: large;
+					padding: 50px;
+					height: 170px;
+				}
+			}
+			.about-content:nth-child(odd) {
+			}
+		}
+		.about-wrapper:nth-of-type(3) {
+			height: auto;
+		}
+	}
+	.slide-option {
+		height: auto;
+	}
+}
+
+@media screen and (max-width:420px) {
+	.about-wrappers {
+		.about-wrapper:nth-of-type(2) {
+			.wrap-content {
+				.user-count {
+					font-size: smaller;
+				}
+			}
+		}
+		.about-wrapper {
+			.about-content {
+				.about-sentence {
+					font-size: small;
+					padding: 40px 0;
+				}
+			}
+		}
+	}
+}
+
+
+

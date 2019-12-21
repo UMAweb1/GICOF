@@ -42,6 +42,7 @@
 	}
 }
 
+
 .dms_body {
 	width: 100%;
 	.dms_all {
@@ -75,3 +76,50 @@
 		}
 	}
 }
+
+
+@media screen and (max-width:990px) {
+	#image_profile {
+		width: 90px;
+	}
+}
+
+@media screen and (max-width:768px) {
+	.dms_body{
+		.dms_all {
+			.dms_users {
+				width: 100%;
+			    margin: 5px;
+				#image_profile {
+					width: 80px;
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width:450px) {
+	.dms_body{
+		.dms_all {
+			.dms_users {
+			    display: block;
+				.col-10 {
+					max-width: none;
+				}
+			    .dms_user_content {
+			    	float: none;
+			    	width: auto;
+			    	margin-bottom: 10px;
+			    	.dms_user_top {
+			    		font-size: 12px;
+			    	}
+			    }
+				#image_profile {
+					width: 60px;
+				}
+			}
+		}
+	}
+}
+

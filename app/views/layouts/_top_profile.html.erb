@@ -16,7 +16,7 @@
 							<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
 						<% else %>
 							<% if room == true %>
-								<%= link_to "チャットへ", room_path(room_id), class:"btn btn-outline-dark" %>
+								<%= link_to "DMを始める", room_path(room_id), class:"btn btn-outline-dark" %>
 							<% else %>
 								<%= form_for room do |r|  %>
 									<%= fields_for entry do |e| %>
