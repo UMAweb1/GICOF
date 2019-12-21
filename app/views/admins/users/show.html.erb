@@ -1,2 +1,109 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<div class="container">
+	<div class="row"  id="body">
+		<div class="header">
+			<h3>　User Info</h3>
+		</div>
+		<div class="window-top" id="top">
+			<div class="left_profile">
+				<table class="image_table">
+					<tbody>
+						<tr>
+							<td>
+								<div class="image_profile">
+									<img src="<%=@user.image_profile_id %>" , id="image_profile", width="180">
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="right_profile">
+				<table class="table table-sm info_table">
+					<tbody>
+						<tr>
+							<th><span>ニックネーム</span></th>
+							<td><%= @user.nickname %></td>
+						</tr>
+						<tr>
+							<th><span>住まい</span></th>
+							<td><%= @user.prefecture %></td>
+						</tr>
+						<tr>
+							<th><span>主な活動範囲</span></th>
+							<td><%= @user.active_area %></td>
+						</tr>
+						<tr>
+							<th><span>主な活動時間</span></th>
+							<td><%= @user.active_time %></td>
+						</tr>
+						<tr>
+							<th><span>傾向</span></th>
+							<td><%= @user.active_content %></td>
+						</tr>
+						<tr>
+							<th><span>フルネーム</span></th>
+							<td><%= "#{@user.first_name}#{@user.last_name}" %></td>
+						</tr>
+						<tr>
+							<th><span>メールアドレス</span></th>
+							<td><%= @user.email %></td>
+						</tr>
+						<tr>
+							<th><span>生年月日</span></th>
+							<td><%= @user.birthday.strftime("%Y/%m/%d") %></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<div class="window-bottom" id="bottom">
+			<div id='calendar'>
+			</div>
+			<div class="user_info">
+				<span>　自己紹介</span>
+				<div class="info_box overflow-auto">
+					<%= simple_format(@user.introduction) %>
+				</div>
+				<span>　好きなゲームのジャンル</span>
+				<div class="info_box">
+					<% @like.each do |f| %>
+						<%= f.gamegenre.gamegenre %><span>/</span>
+					<% end %>
+				</div>
+				<span>　好きなゲーム</span>
+				<div class="info_box overflow-auto">
+					<%= simple_format(@user.game_name) %>
+				</div>
+			</div>
+			<div id="user-events" data-event-id="<%= @user.events.to_json %>"></div>
+		</div>
+		<div class="user_delete">
+			<%= link_to "退会させる", admins_user_path(@user), method: :delete, "data-confirm" => "本当に退会させますか?", class:"btn btn-outline-dark" %>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function () {
+		$(document).ready(function(){
+			var userEvents = $('#user-events').data('event-id');
+		    var calendar = $('#calendar').fullCalendar({
+		        events: userEvents,
+		        eventLimit: true,
+		        selectable: true,
+		        selectHelper: true,
+		        ignoreTimezone: false,
+		        // select: select,
+		        eventClick: function(event) {
+		        	alert('ゲーム名:' + '\n' + event.title + '\n内容:'+ '\n' + event.description + '\n開始時間:' + '\n' + event.start.format('YYYY年MM月DD日 HH:mm') + '\n終了時間:' + '\n' + event.end.format('YYYY年MM月DD日 HH:mm'));
+		        },
+			    header: {
+			      left: 'prev,next today',
+			      center: 'title',
+			      right: 'month,agendaDay'
+			    },
+		    });
+		});
+	});
+</script>

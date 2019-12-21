@@ -3,13 +3,18 @@
 		<div class="header">
 			<h3>　Recommended User</h3>
 		</div>
+		<% flash.each do |name, msg| %>
+		  <div class="alert alert-<%= name %>">
+		    <%= msg %>
+		  </div>
+		<% end %>
 		<% @matching.each do |f| %>
 			<%  if f.followed?(current_user) != nil %> <!-- 既にフォローしていた場合は表示しない -->
 			<% else %>
 				<div class="flame">
 					<div class="user_flame">
 						<div class="match_top">
-							<%= attachment_image_tag f, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+							<img src="<%= f.image_profile_id %>" , id="image_profile", width="100">
 						</div>
 						<div class="match_info">
 							<ul>

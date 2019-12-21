@@ -1,2 +1,2 @@
-$("#user-modal").html("<%= escape_javascript(render 'layouts/new_calendar', event: @event) %>")
+$("#user-modal").html("<%= escape_javascript(render 'layouts/new_calendar', new_event: @new_event) %>")
 $("#user-modal").modal("show")

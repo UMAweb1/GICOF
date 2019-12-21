@@ -26,16 +26,7 @@
   <span class="text-center">メッセージはまだありません</span>
 <% end %>
 <hr>
+<%= javascript_include_tag 'publics/scroll.js' %>
 
-<script>
-$(function() {
-  $('.dm_scroll').jscroll({
-    contentSelector: '.scroller',
-    nextSelector: 'span.next a',
-    autoTrigger: true,
-    padding: 200
-  });
-});
-</script>
 
 

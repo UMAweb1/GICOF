@@ -23,6 +23,44 @@
 	box-sizing: border-box;
 }
 
+// 未読機能
+.read {
+	padding: 0 5px;
+	background-color: #b22222;
+	border-radius: 5px;
+}
+
+.read2 {
+	background: linear-gradient(transparent 60%, #b22222 60%);
+}
+
+// flashメッセージ
+.alert {
+	width: 100%;
+}
+
+// イメージ画像枠
+#image_profile {
+	border: 5px solid black;
+	border-radius: 30px;
+	box-shadow: 0 0 5px gray;
+}
+
+
+// ページネーション
+.pagination {
+	margin-top: 10px;
+	.page-item.active {
+		.page-link {
+		    background-color: #3a3a3a;
+		    border-color: #ffffff;
+		}
+		.page-link:hover {
+			color: #fff;
+		}
+	}
+}
+
 a, a:link, a:visited, a:hover, a:active {
   color: #000;
 }
@@ -54,8 +92,6 @@ html,body {
 		padding: 15px;
 		color: #fff;
 	}
-	// 仮線
-	// border: 1px solid #000;
 }
 
 
@@ -155,6 +191,12 @@ html,body {
 	font-weight: bold;
 }
 
+@media screen and (max-width:425px) {
+	#sp-menu {
+		width: 40%;
+	}
+}
+
 
 
 /* --- body --- */
@@ -191,10 +233,70 @@ body {
 	height: 100%;
 }
 
+/* --- admins&users session & registration --- */
+
+.session_body {
+	width: 100%;
+	.form-group {
+		width: 80%;
+		margin: 0 auto;
+		.actions {
+			float: left;
+			padding-right: 20px;
+		}
+		.checkbox {
+			line-height: 2;
+		}
+	}
+}
+
+.registration_body {
+	width: 100%;
+	.form-group {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+
 /* --- footer --- */
 
 #footer {
 	border: 1px solid #000;
 	width: 100%;
-	height: 75px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.3);
+	vertical-align: middle;
+	#footer_nav {
+		text-align: center;
+		color: #fff;
+		line-height: 40px;
+		#footer_info {
+		    position: absolute;
+		    right: 0;
+			.footer_info {
+				color: #fff;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:600px) {
+	#footer {
+		#footer_nav {
+			text-align: -webkit-auto;
+			#footer_info {
+			    position: absolute;
+			    right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width:320px) {
+	#footer {
+		#footer_nav {
+			font-size: smaller;
+		}
+	}
 }

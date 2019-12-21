@@ -6,7 +6,7 @@
   	<div class="modal-body">
   		<div class="user_info_min">
 			<div class="match_top">
-				<%= attachment_image_tag @user, :image_profile, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", id:"image_profile" %>
+				<img src="<%= @user.image_profile_id %>" , id="image_profile", width="100">
 				<ul>
 					<li><%= @user.nickname %></li>
 					<li><%= @user.active_area %></li>

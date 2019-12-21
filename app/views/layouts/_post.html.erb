@@ -1,0 +1,45 @@
+<div class="posts_button">
+	<%= link_to "投稿する", new_post_path, remote:true, class:"btn btn-sm btn-outline-dark post_button" %>
+</div>
+<div class="posts_all scroller">
+	<% posts.each do |f| %>
+	<!-- Postしたユーザーがログインユーザーではない場合 -->
+		<% if f.user != current_user %>
+		<!-- Postしたユーザーをブロックしていない場合 -->
+			<% if f.user.followed?(current_user).block == true %>
+			<% else %>
+				<div class="post_users">
+					<div class="post_user_img col-2">
+						<img src="<%= f.user.image_profile_id %>" , id="image_profile", width="80">
+					</div>
+					<div class="post_user_content col-10">
+						<div class="post_user_top">
+							<%= link_to f.user.nickname, user_path(f.user) %><span>　/　</span>
+							<%= f.created_at.strftime("%Y-%m-%d %H:%M") %>
+						</div>
+						<div class="post_user_bottom">
+							<%= simple_format(f.post) %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% else %>
+			<div class="post_users">
+				<div class="post_user_img col-2">
+					<img src="<%= f.user.image_profile_id %>" , id="image_profile", width="80">
+				</div>
+				<div class="post_user_content col-10">
+					<div class="post_user_top">
+						<%= link_to f.user.nickname, user_path(f.user) %><span>　/　</span>
+						<%= f.created_at.strftime("%Y-%m-%d %H:%M") %>
+					</div>
+					<div class="post_user_bottom">
+						<%= simple_format(f.post) %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+	<%= paginate posts, url:posts_path %>
+</div>
+<%= javascript_include_tag 'publics/scroll.js' %>

@@ -1,13 +1,22 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
+	# flashメッセージ種類追加
+	add_flash_types :success, :info, :warning, :danger
+	protect_from_forgery with: :exception
 	def after_sign_in_path_for(resource)
 		if resource.is_a?(Admin)
-		  root_path
+		  admins_users_path
 		elsif current_user
-	      flash[:notice] = ""
-	      user_path(current_user)  #　指定したいパスに変更
+	      user_path(current_user)
 	  end
+	end
+
+	def after_sign_out_path_for(resource)
+	    if resource == :admin
+	      new_admin_session_path
+	    else
+	      root_path
+	    end
 	end
 
 	def configure_permitted_parameters

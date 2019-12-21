@@ -10,16 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require activestorage
 //= require jquery
+//= require rails-ujs
 //= require moment
 //= require fullcalendar
 //= require bootstrap-sprockets
 
 $(function() {
-
-
 
   $('.menu-trigger').on('click', function() {
     $(this).toggleClass('active');

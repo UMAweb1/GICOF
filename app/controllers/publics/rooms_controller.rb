@@ -12,6 +12,10 @@ class Publics::RoomsController < Publics::ApplicationController
   		@messages = @room.messages.order(id: "DESC").page(params[:page]).per(10)
   		@message = Message.new
   		@entries = @room.entries
+      @read = Entry.where("user_id != ?", current_user.id).find_by(room_id: @room.id)
+      if @read.read == true
+        @read.update(read: false)
+      end
   	else
   		redirect_to user_path(current_user)
   	end

@@ -12,20 +12,20 @@ class User < ApplicationRecord
 	# 投稿機能
 	has_many :posts, dependent: :destroy
 	# 問い合わせ機能
-	has_many :inquiries
+	has_many :inquiries, dependent: :destroy
 	# 通報機能
-	has_many :reports
+	has_many :reports, dependent: :destroy
 	# DM機能(エントリー)
 	has_many :entries, dependent: :destroy
 	# DM機能(メッセージ)
 	has_many :messages, dependent: :destroy
-	# DM機能(好きなゲーム種類)
+	# 好きなゲーム種類
 	has_many :likes, dependent: :destroy
 	has_many :gamegenres, through: :likes
 	# カレンダー機能
 	has_many :events, dependent: :destroy
 
-	attachment :image_profile
+	mount_uploader :image_profile_id, ImageUploader
 
 	enum active_content: { 全力: true, 楽しむ: false }
 	enum prefecture: {
@@ -38,6 +38,13 @@ class User < ApplicationRecord
 	    徳島県:36,香川県:37,愛媛県:38,高知県:39,
 	    福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46,沖縄県:47
 	}
+	validates :first_name, presence:true, length: {maximum: 10}
+	validates :last_name, presence:true, length: {maximum: 10}
+	validates :first_name_kana, presence:true, length: {maximum: 10}
+	validates :last_name_kana, presence:true, length: {maximum: 10}
+	validates :nickname, presence:true, length: {maximum: 6}, uniqueness: true
+	validates :birthday, presence:true
+
 
   def follow(other_user)
     unless self == other_user

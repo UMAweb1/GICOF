@@ -1,0 +1,2 @@
+$("#post_wrapper").html("<%= escape_javascript(render 'layouts/post', user: @user, posts: @posts) %>")
+$("#user-modal").modal("hide")

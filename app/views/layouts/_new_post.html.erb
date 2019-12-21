@@ -1,0 +1,20 @@
+<div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+	<div class="modal-header">
+		<div class="modal-title"><h3>New Post</h3></div>
+	</div>
+	<%= form_for(new_post, url:posts_path) do |f| %>
+  	<div class="modal-body form-group">
+  		<div class="field post_content">
+  			<%= f.label :post_content %><br/>
+  			<%= f.text_area :post, class:"form-control" %>
+  		</div>
+  	</div>
+  	<div class="modal-footer">
+	    <div class="actions">
+	    	<%= f.submit "投稿する", class:"btn btn-sm btn-outline-dark" %>
+	    </div>
+  	</div>
+	<% end %>
+  </div>
+</div>

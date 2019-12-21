@@ -3,8 +3,13 @@
 	<div class="modal-header">
 		<div class="modal-title"><h3>Add Calendar</h3></div>
 	</div>
-	<%= form_with(model:event, url:events_path) do |f| %>
+	<%= form_with(model:new_event, url:events_path) do |f| %>
   	<div class="modal-body form-group">
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <%= msg %>
+        </div>
+      <% end %>
   		<div class="field game_title">
   			<%= f.label :game_title %><br/>
 	  		<%= f.text_field :title, class:"form-control" %>

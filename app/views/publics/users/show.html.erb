@@ -2,6 +2,11 @@
 	<div class="row"  id="body">
 		<div class="header">
 			<h3>　User Info</h3>
+	      <% flash.each do |name, msg| %>
+	        <div class="alert alert-<%= name %>">
+	          <%= msg %>
+	        </div>
+	      <% end %>
 		</div>
 		<div class="window-top" id="top">
 			<%= render 'layouts/top_profile', user: @user, current: @current, room: @room, room_id: @room_id, entry: @entry %>
@@ -9,5 +14,11 @@
 		<div class="window-bottom" id="bottom">
 			<%= render 'layouts/bottom_profile', user: @user, current: @current, like: @like %>
 		</div>
+		<% if @user != current_user %>
+			<div class="user_block">
+				<%= link_to "マッチング解除", relationship_path(@user), method: :patch, class:"btn btn-outline-dark" %>
+			</div>
+		<% else %>
+		<% end %>
 	</div>
 </div>

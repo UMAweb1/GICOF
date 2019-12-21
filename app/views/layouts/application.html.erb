@@ -4,13 +4,15 @@
     <title>GICOF</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
     <script src="https://kit.fontawesome.com/50e1df26d8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
   </head>
   <body>
     <header id="header" class="">
@@ -22,23 +24,26 @@
       <% if admin_signed_in? %>
         <div id="sp-menu">
           <ul>
-            <li><%= link_to "新規登録", signup_path, remote: true %></li>
-            <li><%= link_to "ログイン", signin_path, remote: true %></li>
-            <li><a href="#">MENU3</a></li>
-            <li><a href="#">MENU4</a></li>
-            <li><a href="#">MENU5</a></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "利用者一覧", admins_users_path %></li>
+            <li><%= link_to "ゲームジャンル一覧", new_admins_gamegenre_path %></li>
           </ul>
         </div>
       <% elsif user_signed_in? %>
         <div id="sp-menu">
           <ul>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "マイページ", user_path(current_user) %></li>
             <li><%= link_to "マッチング一覧", users_path %></li>
-            <li><%= link_to "DM一覧", rooms_path %></li>
+            <li>
+              <%= link_to "DM一覧", rooms_path %>
+              <% unless read_flag(current_user) == 0 %>
+                <span class="read"><%= read_flag(current_user) %></span>
+              <% end %>
+            </li>
             <li><%= link_to "見つける", matching_path(current_user) %></li>
             <li><%= link_to "投稿一覧", posts_path %></li>
-            <li><%= link_to "問い合わせ", new_inquiry_path %></li>
+            <li><%= link_to "退会する", user_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか?" %></li>
           </ul>
         </div>
       <% else %>
@@ -48,6 +53,15 @@
             <li><%= link_to "ログイン", new_user_session_path %></li>
           </ul>
         </div>
+      <% end %>
+      <!-- 管理者のログインページのみハンバーガーアイコンを非表示 -->
+      <% path = Rails.application.routes.recognize_path(request.path) %>
+      <% if path[:controller] == "admins/sessions" && path[:action] == "new" %>
+        <style>
+          #hm-icon {
+            display: none;
+          }
+        </style>
       <% end %>
       <!-- --- ハンバーガーアイコン ----->
       <div id="hm-icon">
@@ -64,6 +78,13 @@
       </div>
       <div class="push"></div> <!-- footerとbodyの余白 -->
     <footer id="footer">
+      <div id="footer_nav">
+        <span>© 2019 GICOF</span>
+        <span id="footer_info">
+          <%= link_to "利用規約", term_path, class:"footer_info" %><span>　</span>
+          <%= link_to "プライバシーポリシー", privacy_policy_path, class:"footer_info" %>
+        </span>
+      </div>
     </footer>
   </body>
 </html>

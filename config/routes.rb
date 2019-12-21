@@ -40,9 +40,7 @@ Rails.application.routes.draw do
     # カレンダー
     resources :events, only: [:create, :new, :index, :show, :edit, :update, :destroy]
     # マッチング機能
-    resources :relationships, only: [:create]
-    patch 'relationships/:id' => 'relationships#block'
-    put 'relationships/:id' => 'relationships#block'
+    resources :relationships, only: [:create, :update]
     # ユーザー機能
     resources :users, only: [:index, :show, :edit, :update, :destroy]
     get 'users/:id/matchings' => 'users#matching', as: 'matching'
@@ -51,8 +49,8 @@ Rails.application.routes.draw do
   end
 
   get 'tops/caution'
-  get 'tops/term'
-  get 'tops/privacy_policy'
+  get 'term' => 'tops#term'
+  get 'privacy_policy' => 'tops#privacy_policy'
   get 'signin' => 'signin#new', as: 'signin'
   get 'signup' => 'signup#new', as: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
