@@ -15,13 +15,13 @@
 		margin: 50px auto;
 		text-align: center;
 		.about-image1 {
-			background-image: url(tops2.jpg);
+			background-image: image-url("tops2.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
 
 		.about-image2 {
-			background-image: url(tops1.jpg);
+			background-image: image-url("tops1.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 		}
