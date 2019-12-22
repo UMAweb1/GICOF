@@ -7,7 +7,7 @@
 				    <span><%= m.user.nickname %><small>さん</small></span></br>
 				    <small><%= m.created_at.strftime("%Y-%m-%d %H:%M") %></small>
 			  		<div class="dm_content">
-				    	<strong><%= m.content %></strong>
+				    	<strong><%= simple_format(m.content) %></strong>
 			  		</div>
 			  	</div>
 		  	<% else %>
@@ -15,7 +15,7 @@
 				    <span><%= m.user.nickname %><small>さん</small></span></br>
 				    <small><%= m.created_at.strftime("%Y-%m-%d %H:%M") %></small>
 			  		<div class="dm_content">
-				    	<strong><%= m.content %></strong>
+				    	<strong><%= simple_format(m.content) %></strong>
 			  		</div>
 			  	</div>
 		    <% end %>
