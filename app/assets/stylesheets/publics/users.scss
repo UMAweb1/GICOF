@@ -222,6 +222,15 @@
 .user_info_min {
 	width: 100%;
 	margin: 0 auto;
+	.match_top {
+		display: flex;
+		margin: 0 auto 10px;
+		table {
+			position: relative;
+			left: 40px;
+			top: 10px;
+		}
+	}
 	.info_box_min {
 		width: 95%;
 		height: 15vh;
