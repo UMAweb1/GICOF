@@ -3,9 +3,6 @@ class TopsController < ApplicationController
   	@users = User.all
   end
 
-  def caution
-  end
-
   def term
   end
 
