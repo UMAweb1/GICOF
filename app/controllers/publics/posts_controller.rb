@@ -11,22 +11,9 @@ class Publics::PostsController < Publics::ApplicationController
     @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
-      # render(layouts/_post.html.erb)のため記述
-      # @user = current_user
-      # @matching_ids = @user.following_ids & @user.followed_ids
-      # @matching_ids << @user.id
-      # @posts = Post.joins(:user).where(user_id: @matching_ids).order("created_at":"DESC").page(params[:page]).per(15)
-      # respond_to do |format|
-      #   format.html
-      #   format.js
-      #   format.json
-      # end
     else
       redirect_to posts_path, danger: "投稿が失敗しました"
     end
-  end
-
-  def show
   end
 
   def new

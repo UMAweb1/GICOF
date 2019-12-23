@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     # 通報機能
     resources :reports, only: [:create, :new]
     # カレンダー
-    resources :events, only: [:create, :new, :index, :show, :edit, :update, :destroy]
+    resources :events, only: [:create, :new, :index]
     # マッチング機能
     resources :relationships, only: [:create, :update]
     # ユーザー機能
@@ -48,10 +48,7 @@ Rails.application.routes.draw do
     get 'users/:id/edit2' => 'users#edit2', as: 'edit2'
   end
 
-  get 'tops/caution'
   get 'term' => 'tops#term'
   get 'privacy_policy' => 'tops#privacy_policy'
-  get 'signin' => 'signin#new', as: 'signin'
-  get 'signup' => 'signup#new', as: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
