@@ -5,9 +5,11 @@
 	</div>
 	<%= form_with(model:new_event, url:events_path) do |f| %>
   	<div class="modal-body form-group">
-      <% flash.each do |name, msg| %>
-        <div class="alert alert-<%= name %>">
-          <%= msg %>
+      <% if event.errors.any? %>
+        <div class="alert alert-warning">
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </div>
       <% end %>
   		<div class="field game_title">
