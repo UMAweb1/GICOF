@@ -6,27 +6,27 @@
   	<div class="modal-body">
   		<div class="user_info_min">
 			<div class="match_top">
-				<img src="<%= @user.image_profile_id %>" , id="image_profile", width="100">
+				<img src="<%= user.image_profile_id %>" , id="image_profile", width="100">
 				<table>
 					<tbody>
 						<tr>
 							<th>ニックネーム：　</th>
-							<td><%= @user.nickname %></td>
+							<td><%= user.nickname %></td>
 						</tr>
 						<tr>
 							<th>活動範囲：　</th>
-							<td><%= @user.active_area %></td>
+							<td><%= user.active_area %></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<span>　自己紹介</span>
 			<div class="info_box_min">
-		  		<%= simple_format(@user.introduction) %>
+		  		<%= simple_format(user.introduction) %>
 			</div>
 			<span>　好きなゲーム</span>
 			<div class="info_box_min">
-		  		<%= simple_format(@user.game_name) %>
+		  		<%= simple_format(user.game_name) %>
 			</div>
   		</div>
   	</div>

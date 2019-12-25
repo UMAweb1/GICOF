@@ -81,6 +81,8 @@ class Publics::UsersController < Publics::ApplicationController
         format.js
         format.json
       end
+    else
+      render :edit
     end
   end
 

@@ -1,2 +1,2 @@
-$("#user-modal").html("<%= escape_javascript(render 'layouts/edit') %>")
+$("#user-modal").html("<%= escape_javascript(render 'layouts/edit', user: @user) %>")
 $("#user-modal").modal("show")
