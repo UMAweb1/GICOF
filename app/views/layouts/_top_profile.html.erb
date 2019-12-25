@@ -13,7 +13,14 @@
 					<div>
 						<br/>
 						<% if user == current_user %>
-							<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
+							<ul>
+								<li>
+									<%= link_to "プロフィール変更", edit_user_path(@user), remote: true, class:"btn btn-outline-dark" %>
+								</li>
+								<li>
+									<button class="btn btn-outline-dark btn-sm" type="button" data-toggle="modal" data-target="#caution">caution</button>
+								</li>
+							</ul>
 						<% else %>
 							<% if room == true %>
 								<%= link_to "DMを始める", room_path(room_id), class:"btn btn-outline-dark" %>
