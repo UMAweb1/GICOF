@@ -10,7 +10,7 @@ module GICOF
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    unless  Rails.env.production?
+    unless  Rails.env.production? || Rails.env.test?
         config.web_console.whitelisted_ips = '10.0.2.2'
     end
 
