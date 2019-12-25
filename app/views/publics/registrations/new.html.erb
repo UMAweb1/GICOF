@@ -15,7 +15,7 @@
                       <span><small>※ユーザーには表示されません</small></span><br/>
                     </th>
                     <td>
-                      <%= f.text_field :first_name, placeholder: "firstname(姓)", class:"form-control" %>
+                      <%= f.text_field :first_name, autofocus: true, placeholder: "firstname(姓)", class:"form-control" %>
                       <%= f.text_field :last_name, placeholder: "firstname(名)", class:"form-control" %>
                       <br /><br />
                       <%= f.text_field :first_name_kana, placeholder: "firstname(セイ)", class:"form-control" %>
@@ -56,7 +56,7 @@
                 <tr>
                   <div class="field">
                     <th><%= f.label :email %></th>
-                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></td>
+                    <td><%= f.email_field :email, autocomplete: "email", class:"form-control" %></td>
                   </div>
                 </tr>
                 <tr>
