@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー情報
+      event: 予定
     attributes:
       user:
         email: メールアドレス
@@ -11,3 +12,8 @@ ja:
         first_name_kana: ミョウジ
         last_name_kana: ナマエ
         nickname: ニックネーム
+      event:
+        title: ゲーム名
+        description: 内容
+        start: 開始時刻
+        end: 終了時刻
