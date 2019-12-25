@@ -43,18 +43,6 @@ class Publics::EventsController < Publics::ApplicationController
       }
     end
   end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
   private
   def event_params
     params.require(:event).permit(:user_id, :title, :description, :start, :end)

@@ -42,9 +42,10 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'rspec-rails'
+  gem 'better_errors','2.5.1'
+  gem 'binding_of_caller','0.8.0'
+  gem 'rspec-rails','3.9.0'
+  gem 'factory_bot_rails','~> 5.1.1'
 end
 
 group :development do
@@ -68,23 +69,18 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 追加分
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
+gem 'devise','~> 4.7.1'
 gem 'kaminari','~> 1.1.1'
-gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
-gem 'paranoia'
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
-gem 'ransack'
-gem 'carrierwave'
-gem 'rmagick'
-gem 'bxslider-rails'
-# gem "refile", require: "refile/rails", github: 'manfe/refile'
-# gem "refile-mini_magick"
-gem 'font-awesome-rails'
-gem 'rails-i18n'
+gem 'bootstrap','~> 4.1.1'
+gem 'jquery-rails','>= 4.0.5', '< 5.0.0'
+gem 'fullcalendar-rails','3.9.0.0'
+gem 'momentjs-rails','>= 2.9.0', '< 3.0.0'
+gem 'ransack', '2.3.0'
+gem 'carrierwave', '2.0.2'
+gem 'rmagick', '4.0.0'
+gem 'bxslider-rails', '4.2.5.1'
+gem 'font-awesome-rails', '4.7.0.5'
+gem 'rails-i18n', '5.1.3'
 
 group :production do
   gem 'mysql2'
