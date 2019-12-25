@@ -45,6 +45,7 @@ group :development, :test do
   gem 'better_errors','2.5.1'
   gem 'binding_of_caller','0.8.0'
   gem 'rspec-rails','3.9.0'
+  gem 'factory_bot_rails','~> 5.1.1'
 end
 
 group :development do
