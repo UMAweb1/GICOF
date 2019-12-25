@@ -3,36 +3,26 @@ class Publics::EventsController < Publics::ApplicationController
     @user = current_user
     @like = Like.where(user_id: @user.id)
     @new_event = Event.new
-    event = Event.new(event_params)
-    event.user_id = current_user.id
-    if event.start == event.end
-      flash.now[:warning] = "空白が存在するか開始時刻と終了時刻に問題があります"
-      render :new
-    else
-      if event.save
-        # 開始時刻より終了時刻が前の時刻の場合削除しエラー文を表示y
-        if event.end < event.start
-          event.destroy
-          flash.now[:warning] = "開始時刻と終了時刻に問題があります"
-          render :new
-        else
-          respond_to do |format|
-            format.html
-            format.js
-            format.json {
-              render json: @event
-            }
-          end
+    @event = Event.new(event_params)
+    @event.user_id = current_user.id
+    if @event.save
+        respond_to do |format|
+          format.html
+          format.js
+          format.json {
+            render json: @event
+          }
         end
-      else
-        flash.now[:danger] = "空白を埋めてください"
-        render :new
-      end
+    else
+      flash.now[:danger] = "空白を埋めてください"
+      render :new
     end
   end
 
   def new
     @new_event = Event.new
+    # Why: エラー文を表示させるため(@event=Event.newがない場合、modal作成時NoMethodErrorが発生)
+    @event = Event.new
   end
 
   def index
