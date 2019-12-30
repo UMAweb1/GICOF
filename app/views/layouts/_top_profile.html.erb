@@ -22,7 +22,7 @@
 								</li>
 							</ul>
 						<% else %>
-							<% if room == true %>
+							<% if room_id != nil %>
 								<%= link_to "DMを始める", room_path(room_id), class:"btn btn-outline-dark" %>
 							<% else %>
 								<%= form_for room do |r|  %>

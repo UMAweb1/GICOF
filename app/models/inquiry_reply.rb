@@ -1,3 +1,3 @@
 class InquiryReply < ApplicationRecord
-	belongs_to :inquiry
+  belongs_to :inquiry
 end
