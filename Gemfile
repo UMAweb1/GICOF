@@ -37,24 +37,23 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'better_errors', '2.5.1'
+  gem 'binding_of_caller', '0.8.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
+  gem 'factory_bot_rails', '~> 5.1.1'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'better_errors','2.5.1'
-  gem 'binding_of_caller','0.8.0'
-  gem 'rspec-rails','3.9.0'
-  gem 'factory_bot_rails','~> 5.1.1'
+  gem 'pry-rails'
+  gem 'rspec-rails', '3.9.0'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
@@ -68,19 +67,18 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# 追加分
-gem 'devise','~> 4.7.1'
-gem 'kaminari','~> 1.1.1'
-gem 'bootstrap','~> 4.1.1'
-gem 'jquery-rails','>= 4.0.5', '< 5.0.0'
-gem 'fullcalendar-rails','3.9.0.0'
-gem 'momentjs-rails','>= 2.9.0', '< 3.0.0'
-gem 'ransack', '2.3.0'
-gem 'carrierwave', '2.0.2'
-gem 'rmagick', '4.0.0'
+gem 'bootstrap', '~> 4.1.1'
 gem 'bxslider-rails', '4.2.5.1'
+gem 'carrierwave', '2.0.2'
+gem 'devise', '~> 4.7.1'
 gem 'font-awesome-rails', '4.7.0.5'
+gem 'fullcalendar-rails', '3.9.0.0'
+gem 'jquery-rails', '>= 4.0.5', '< 5.0.0'
+gem 'kaminari', '~> 1.1.1'
+gem 'momentjs-rails', '>= 2.9.0', '< 3.0.0'
 gem 'rails-i18n', '5.1.3'
+gem 'ransack', '2.3.0'
+gem 'rmagick', '4.0.0'
 
 group :production do
   gem 'mysql2'

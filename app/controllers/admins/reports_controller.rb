@@ -1,4 +1,3 @@
 class Admins::ReportsController < Admins::ApplicationController
-  def index
-  end
+  def index; end
 end

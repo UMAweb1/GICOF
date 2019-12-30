@@ -1,0 +1,72 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
+    - vendor/**/*
+    - test/**/*
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
+    - app/helpers/**/*
+    - app/uploaders/*
+    - config/puma.rb
+    - 'config/routes.rb'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/**/*'
+
+Layout/Tab:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/MethodLength:
+  Max: 15
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/event.rb'
+
+Style/GuardClause:
+  Exclude:
+    - 'app/models/event.rb'
+    - 'app/models/user.rb'
+    - 'app/controllers/publics/users_controller.rb'
+
+Layout/FirstHashElementIndentation:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/SafeNavigation:
+  Exclude:
+    - 'app/models/user.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/models/user.rb'
+
+# 機能追加検討分
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/admins/inquiries_controller.rb'
+    - 'app/controllers/admins/inquiry_replies_controller.rb'
+    - 'app/controllers/admins/reports_controller.rb'
