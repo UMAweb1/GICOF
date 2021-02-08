@@ -71,7 +71,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'bxslider-rails', '4.2.5.1'
-gem 'carrierwave', '2.0.2'
+gem 'carrierwave', '2.1.1'
 gem 'devise', '~> 4.7.1'
 gem 'font-awesome-rails', '4.7.0.5'
 gem 'fullcalendar-rails', '3.9.0.0'
