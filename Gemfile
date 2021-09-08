@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'better_errors', '2.5.1'
+  gem 'better_errors', '2.8.0'
   gem 'binding_of_caller', '0.8.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 5.1.1'
